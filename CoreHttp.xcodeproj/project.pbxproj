@@ -1,0 +1,531 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE20AFA81AA4668A009CC587 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFA71AA4668A009CC587 /* main.m */; };
+		EE20AFAB1AA4668A009CC587 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFAA1AA4668A009CC587 /* AppDelegate.m */; };
+		EE20AFAE1AA4668A009CC587 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFAD1AA4668A009CC587 /* ViewController.m */; };
+		EE20AFB11AA4668A009CC587 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE20AFAF1AA4668A009CC587 /* Main.storyboard */; };
+		EE20AFB31AA4668A009CC587 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE20AFB21AA4668A009CC587 /* Images.xcassets */; };
+		EE20AFB61AA4668A009CC587 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE20AFB41AA4668A009CC587 /* LaunchScreen.xib */; };
+		EE20AFC21AA4668A009CC587 /* CoreHttpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFC11AA4668A009CC587 /* CoreHttpTests.m */; };
+		EE20AFE81AA466C5009CC587 /* CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFDE1AA466C5009CC587 /* CoreHttp.m */; };
+		EE20AFE91AA466C5009CC587 /* NSData+Param.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFE11AA466C5009CC587 /* NSData+Param.m */; };
+		EE20AFEA1AA466C5009CC587 /* NSString+File.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFE31AA466C5009CC587 /* NSString+File.m */; };
+		EE20AFEB1AA466C5009CC587 /* NSURL+File.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFE51AA466C5009CC587 /* NSURL+File.m */; };
+		EE20AFEC1AA466C5009CC587 /* UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFE71AA466C5009CC587 /* UploadFile.m */; };
+		EEDFF6291AA4681B00401447 /* NSString+CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDFF6281AA4681B00401447 /* NSString+CoreHttp.m */; };
+		EEDFF6301AA4698200401447 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDFF62D1AA4698200401447 /* Reachability.m */; };
+		EEDFF6311AA4698200401447 /* ToolStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDFF62F1AA4698200401447 /* ToolStatus.m */; };
+		EEDFF6331AA46F1D00401447 /* cut.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDFF6321AA46F1D00401447 /* cut.png */; };
+		EEDFF6351AA46F8400401447 /* charlin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EEDFF6341AA46F8400401447 /* charlin.jpg */; };
+		EEDFF6381AA472C400401447 /* NSData+MimeType.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDFF6371AA472C400401447 /* NSData+MimeType.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE20AFBC1AA4668A009CC587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE20AF9A1AA4668A009CC587 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE20AFA11AA4668A009CC587;
+			remoteInfo = CoreHttp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EE20AFA21AA4668A009CC587 /* CoreHttp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreHttp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE20AFA61AA4668A009CC587 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE20AFA71AA4668A009CC587 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EE20AFA91AA4668A009CC587 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EE20AFAA1AA4668A009CC587 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EE20AFAC1AA4668A009CC587 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EE20AFAD1AA4668A009CC587 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EE20AFB01AA4668A009CC587 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EE20AFB21AA4668A009CC587 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EE20AFB51AA4668A009CC587 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		EE20AFBB1AA4668A009CC587 /* CoreHttpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreHttpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE20AFC01AA4668A009CC587 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE20AFC11AA4668A009CC587 /* CoreHttpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreHttpTests.m; sourceTree = "<group>"; };
+		EE20AFDD1AA466C5009CC587 /* CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreHttp.h; sourceTree = "<group>"; };
+		EE20AFDE1AA466C5009CC587 /* CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreHttp.m; sourceTree = "<group>"; };
+		EE20AFE01AA466C5009CC587 /* NSData+Param.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Param.h"; sourceTree = "<group>"; };
+		EE20AFE11AA466C5009CC587 /* NSData+Param.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Param.m"; sourceTree = "<group>"; };
+		EE20AFE21AA466C5009CC587 /* NSString+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+File.h"; sourceTree = "<group>"; };
+		EE20AFE31AA466C5009CC587 /* NSString+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+File.m"; sourceTree = "<group>"; };
+		EE20AFE41AA466C5009CC587 /* NSURL+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+File.h"; sourceTree = "<group>"; };
+		EE20AFE51AA466C5009CC587 /* NSURL+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+File.m"; sourceTree = "<group>"; };
+		EE20AFE61AA466C5009CC587 /* UploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadFile.h; sourceTree = "<group>"; };
+		EE20AFE71AA466C5009CC587 /* UploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadFile.m; sourceTree = "<group>"; };
+		EEDFF6271AA4681B00401447 /* NSString+CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CoreHttp.h"; sourceTree = "<group>"; };
+		EEDFF6281AA4681B00401447 /* NSString+CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CoreHttp.m"; sourceTree = "<group>"; };
+		EEDFF62C1AA4698200401447 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		EEDFF62D1AA4698200401447 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		EEDFF62E1AA4698200401447 /* ToolStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolStatus.h; sourceTree = "<group>"; };
+		EEDFF62F1AA4698200401447 /* ToolStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolStatus.m; sourceTree = "<group>"; };
+		EEDFF6321AA46F1D00401447 /* cut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cut.png; sourceTree = "<group>"; };
+		EEDFF6341AA46F8400401447 /* charlin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = charlin.jpg; sourceTree = "<group>"; };
+		EEDFF6361AA472C400401447 /* NSData+MimeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MimeType.h"; sourceTree = "<group>"; };
+		EEDFF6371AA472C400401447 /* NSData+MimeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MimeType.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE20AF9F1AA4668A009CC587 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE20AFB81AA4668A009CC587 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE20AF991AA4668A009CC587 = {
+			isa = PBXGroup;
+			children = (
+				EE20AFA41AA4668A009CC587 /* CoreHttp */,
+				EE20AFBE1AA4668A009CC587 /* CoreHttpTests */,
+				EE20AFA31AA4668A009CC587 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EE20AFA31AA4668A009CC587 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE20AFA21AA4668A009CC587 /* CoreHttp.app */,
+				EE20AFBB1AA4668A009CC587 /* CoreHttpTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE20AFA41AA4668A009CC587 /* CoreHttp */ = {
+			isa = PBXGroup;
+			children = (
+				EE20AFDC1AA466C5009CC587 /* CoreHttp */,
+				EE20AFA91AA4668A009CC587 /* AppDelegate.h */,
+				EE20AFAA1AA4668A009CC587 /* AppDelegate.m */,
+				EE20AFAC1AA4668A009CC587 /* ViewController.h */,
+				EE20AFAD1AA4668A009CC587 /* ViewController.m */,
+				EE20AFAF1AA4668A009CC587 /* Main.storyboard */,
+				EE20AFB21AA4668A009CC587 /* Images.xcassets */,
+				EE20AFB41AA4668A009CC587 /* LaunchScreen.xib */,
+				EE20AFA51AA4668A009CC587 /* Supporting Files */,
+			);
+			path = CoreHttp;
+			sourceTree = "<group>";
+		};
+		EE20AFA51AA4668A009CC587 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EEDFF6341AA46F8400401447 /* charlin.jpg */,
+				EEDFF6321AA46F1D00401447 /* cut.png */,
+				EE20AFA61AA4668A009CC587 /* Info.plist */,
+				EE20AFA71AA4668A009CC587 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE20AFBE1AA4668A009CC587 /* CoreHttpTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE20AFC11AA4668A009CC587 /* CoreHttpTests.m */,
+				EE20AFBF1AA4668A009CC587 /* Supporting Files */,
+			);
+			path = CoreHttpTests;
+			sourceTree = "<group>";
+		};
+		EE20AFBF1AA4668A009CC587 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE20AFC01AA4668A009CC587 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE20AFDC1AA466C5009CC587 /* CoreHttp */ = {
+			isa = PBXGroup;
+			children = (
+				EE20AFDD1AA466C5009CC587 /* CoreHttp.h */,
+				EE20AFDE1AA466C5009CC587 /* CoreHttp.m */,
+				EEDFF62A1AA4698200401447 /* ToolStatus */,
+				EEDFF6261AA4680500401447 /* NSString+CoreHttp */,
+				EE20AFDF1AA466C5009CC587 /* Upload */,
+			);
+			path = CoreHttp;
+			sourceTree = "<group>";
+		};
+		EE20AFDF1AA466C5009CC587 /* Upload */ = {
+			isa = PBXGroup;
+			children = (
+				EE20AFE01AA466C5009CC587 /* NSData+Param.h */,
+				EE20AFE11AA466C5009CC587 /* NSData+Param.m */,
+				EEDFF6361AA472C400401447 /* NSData+MimeType.h */,
+				EEDFF6371AA472C400401447 /* NSData+MimeType.m */,
+				EE20AFE21AA466C5009CC587 /* NSString+File.h */,
+				EE20AFE31AA466C5009CC587 /* NSString+File.m */,
+				EE20AFE41AA466C5009CC587 /* NSURL+File.h */,
+				EE20AFE51AA466C5009CC587 /* NSURL+File.m */,
+				EE20AFE61AA466C5009CC587 /* UploadFile.h */,
+				EE20AFE71AA466C5009CC587 /* UploadFile.m */,
+			);
+			path = Upload;
+			sourceTree = "<group>";
+		};
+		EEDFF6261AA4680500401447 /* NSString+CoreHttp */ = {
+			isa = PBXGroup;
+			children = (
+				EEDFF6271AA4681B00401447 /* NSString+CoreHttp.h */,
+				EEDFF6281AA4681B00401447 /* NSString+CoreHttp.m */,
+			);
+			path = "NSString+CoreHttp";
+			sourceTree = "<group>";
+		};
+		EEDFF62A1AA4698200401447 /* ToolStatus */ = {
+			isa = PBXGroup;
+			children = (
+				EEDFF62B1AA4698200401447 /* Reachability */,
+				EEDFF62E1AA4698200401447 /* ToolStatus.h */,
+				EEDFF62F1AA4698200401447 /* ToolStatus.m */,
+			);
+			path = ToolStatus;
+			sourceTree = "<group>";
+		};
+		EEDFF62B1AA4698200401447 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				EEDFF62C1AA4698200401447 /* Reachability.h */,
+				EEDFF62D1AA4698200401447 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE20AFA11AA4668A009CC587 /* CoreHttp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE20AFC51AA4668A009CC587 /* Build configuration list for PBXNativeTarget "CoreHttp" */;
+			buildPhases = (
+				EE20AF9E1AA4668A009CC587 /* Sources */,
+				EE20AF9F1AA4668A009CC587 /* Frameworks */,
+				EE20AFA01AA4668A009CC587 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreHttp;
+			productName = CoreHttp;
+			productReference = EE20AFA21AA4668A009CC587 /* CoreHttp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EE20AFBA1AA4668A009CC587 /* CoreHttpTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE20AFC81AA4668A009CC587 /* Build configuration list for PBXNativeTarget "CoreHttpTests" */;
+			buildPhases = (
+				EE20AFB71AA4668A009CC587 /* Sources */,
+				EE20AFB81AA4668A009CC587 /* Frameworks */,
+				EE20AFB91AA4668A009CC587 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE20AFBD1AA4668A009CC587 /* PBXTargetDependency */,
+			);
+			name = CoreHttpTests;
+			productName = CoreHttpTests;
+			productReference = EE20AFBB1AA4668A009CC587 /* CoreHttpTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE20AF9A1AA4668A009CC587 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = muxi;
+				TargetAttributes = {
+					EE20AFA11AA4668A009CC587 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					EE20AFBA1AA4668A009CC587 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = EE20AFA11AA4668A009CC587;
+					};
+				};
+			};
+			buildConfigurationList = EE20AF9D1AA4668A009CC587 /* Build configuration list for PBXProject "CoreHttp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE20AF991AA4668A009CC587;
+			productRefGroup = EE20AFA31AA4668A009CC587 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE20AFA11AA4668A009CC587 /* CoreHttp */,
+				EE20AFBA1AA4668A009CC587 /* CoreHttpTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE20AFA01AA4668A009CC587 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE20AFB11AA4668A009CC587 /* Main.storyboard in Resources */,
+				EEDFF6351AA46F8400401447 /* charlin.jpg in Resources */,
+				EE20AFB61AA4668A009CC587 /* LaunchScreen.xib in Resources */,
+				EEDFF6331AA46F1D00401447 /* cut.png in Resources */,
+				EE20AFB31AA4668A009CC587 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE20AFB91AA4668A009CC587 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE20AF9E1AA4668A009CC587 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE20AFEB1AA466C5009CC587 /* NSURL+File.m in Sources */,
+				EE20AFE91AA466C5009CC587 /* NSData+Param.m in Sources */,
+				EEDFF6311AA4698200401447 /* ToolStatus.m in Sources */,
+				EEDFF6291AA4681B00401447 /* NSString+CoreHttp.m in Sources */,
+				EE20AFEA1AA466C5009CC587 /* NSString+File.m in Sources */,
+				EEDFF6301AA4698200401447 /* Reachability.m in Sources */,
+				EE20AFAE1AA4668A009CC587 /* ViewController.m in Sources */,
+				EE20AFEC1AA466C5009CC587 /* UploadFile.m in Sources */,
+				EEDFF6381AA472C400401447 /* NSData+MimeType.m in Sources */,
+				EE20AFAB1AA4668A009CC587 /* AppDelegate.m in Sources */,
+				EE20AFE81AA466C5009CC587 /* CoreHttp.m in Sources */,
+				EE20AFA81AA4668A009CC587 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE20AFB71AA4668A009CC587 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE20AFC21AA4668A009CC587 /* CoreHttpTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE20AFBD1AA4668A009CC587 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE20AFA11AA4668A009CC587 /* CoreHttp */;
+			targetProxy = EE20AFBC1AA4668A009CC587 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EE20AFAF1AA4668A009CC587 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE20AFB01AA4668A009CC587 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EE20AFB41AA4668A009CC587 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE20AFB51AA4668A009CC587 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EE20AFC31AA4668A009CC587 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EE20AFC41AA4668A009CC587 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE20AFC61AA4668A009CC587 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CoreHttp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EE20AFC71AA4668A009CC587 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CoreHttp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EE20AFC91AA4668A009CC587 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CoreHttpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoreHttp.app/CoreHttp";
+			};
+			name = Debug;
+		};
+		EE20AFCA1AA4668A009CC587 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CoreHttpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoreHttp.app/CoreHttp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE20AF9D1AA4668A009CC587 /* Build configuration list for PBXProject "CoreHttp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE20AFC31AA4668A009CC587 /* Debug */,
+				EE20AFC41AA4668A009CC587 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE20AFC51AA4668A009CC587 /* Build configuration list for PBXNativeTarget "CoreHttp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE20AFC61AA4668A009CC587 /* Debug */,
+				EE20AFC71AA4668A009CC587 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE20AFC81AA4668A009CC587 /* Build configuration list for PBXNativeTarget "CoreHttpTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE20AFC91AA4668A009CC587 /* Debug */,
+				EE20AFCA1AA4668A009CC587 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE20AF9A1AA4668A009CC587 /* Project object */;
+}
