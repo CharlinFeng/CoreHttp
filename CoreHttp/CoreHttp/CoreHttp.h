@@ -10,18 +10,26 @@
 
 typedef enum{
     
-    CoreHttpErrorTypeNull=0,                                                                            //请求正常，无错误
+    //请求正常，无错误
+    CoreHttpErrorTypeNull=0,
     
-    CoreHttpErrorTypeURLConnectionError,                                                                //请求时出错，可能是URL不正确
+    //请求时出错，可能是URL不正确
+    CoreHttpErrorTypeURLConnectionError,
     
-    CoreHttpErrorTypeStatusCodeError,                                                                   //请求时出错，服务器未返回正常的状态码：200
+    //请求时出错，服务器未返回正常的状态码：200
+    CoreHttpErrorTypeStatusCodeError,
     
-    CoreHttpErrorTypeDataNilError,                                                                      //请求回的Data在解析前就是nil，导致请求无效，无法后续JSON反序列化。
+    //请求回的Data在解析前就是nil，导致请求无效，无法后续JSON反序列化。
+    CoreHttpErrorTypeDataNilError,
     
-    CoreHttpErrorTypeDataSerializationError,                                                            //data在JSON反序列化时出错
+    //data在JSON反序列化时出错
+    CoreHttpErrorTypeDataSerializationError,
     
-    CoreHttpErrorTypeNoNetWork,                                                                         //无网络连接
+    //无网络连接
+    CoreHttpErrorTypeNoNetWork,
     
+    //服务器请求成功，但抛出错误
+    CoreHttpErrorTypeServiceRetrunErrorStatus,
     
     /**
      *  以下是文件上传中的错误类型

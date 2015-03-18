@@ -14,17 +14,16 @@
 		EE20AFB31AA4668A009CC587 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE20AFB21AA4668A009CC587 /* Images.xcassets */; };
 		EE20AFB61AA4668A009CC587 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE20AFB41AA4668A009CC587 /* LaunchScreen.xib */; };
 		EE20AFC21AA4668A009CC587 /* CoreHttpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFC11AA4668A009CC587 /* CoreHttpTests.m */; };
-		EE20AFE81AA466C5009CC587 /* CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFDE1AA466C5009CC587 /* CoreHttp.m */; };
-		EE20AFE91AA466C5009CC587 /* NSData+Param.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFE11AA466C5009CC587 /* NSData+Param.m */; };
-		EE20AFEA1AA466C5009CC587 /* NSString+File.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFE31AA466C5009CC587 /* NSString+File.m */; };
-		EE20AFEB1AA466C5009CC587 /* NSURL+File.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFE51AA466C5009CC587 /* NSURL+File.m */; };
-		EE20AFEC1AA466C5009CC587 /* UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFE71AA466C5009CC587 /* UploadFile.m */; };
-		EEDFF6291AA4681B00401447 /* NSString+CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDFF6281AA4681B00401447 /* NSString+CoreHttp.m */; };
-		EEDFF6301AA4698200401447 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDFF62D1AA4698200401447 /* Reachability.m */; };
-		EEDFF6311AA4698200401447 /* ToolStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDFF62F1AA4698200401447 /* ToolStatus.m */; };
+		EE5839A01AB991DA00516AC1 /* CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = EE58398D1AB991DA00516AC1 /* CoreHttp.m */; };
+		EE5839A11AB991DA00516AC1 /* NSString+CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5839901AB991DA00516AC1 /* NSString+CoreHttp.m */; };
+		EE5839A21AB991DA00516AC1 /* NSData+MimeType.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5839951AB991DA00516AC1 /* NSData+MimeType.m */; };
+		EE5839A31AB991DA00516AC1 /* NSData+Param.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5839971AB991DA00516AC1 /* NSData+Param.m */; };
+		EE5839A41AB991DA00516AC1 /* NSString+File.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5839991AB991DA00516AC1 /* NSString+File.m */; };
+		EE5839A51AB991DA00516AC1 /* NSURL+File.m in Sources */ = {isa = PBXBuildFile; fileRef = EE58399B1AB991DA00516AC1 /* NSURL+File.m */; };
+		EE5839A61AB991DA00516AC1 /* ToolConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = EE58399D1AB991DA00516AC1 /* ToolConnection.m */; };
+		EE5839A71AB991DA00516AC1 /* UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EE58399F1AB991DA00516AC1 /* UploadFile.m */; };
 		EEDFF6331AA46F1D00401447 /* cut.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDFF6321AA46F1D00401447 /* cut.png */; };
 		EEDFF6351AA46F8400401447 /* charlin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EEDFF6341AA46F8400401447 /* charlin.jpg */; };
-		EEDFF6381AA472C400401447 /* NSData+MimeType.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDFF6371AA472C400401447 /* NSData+MimeType.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,26 +50,24 @@
 		EE20AFBB1AA4668A009CC587 /* CoreHttpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreHttpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE20AFC01AA4668A009CC587 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE20AFC11AA4668A009CC587 /* CoreHttpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreHttpTests.m; sourceTree = "<group>"; };
-		EE20AFDD1AA466C5009CC587 /* CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreHttp.h; sourceTree = "<group>"; };
-		EE20AFDE1AA466C5009CC587 /* CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreHttp.m; sourceTree = "<group>"; };
-		EE20AFE01AA466C5009CC587 /* NSData+Param.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Param.h"; sourceTree = "<group>"; };
-		EE20AFE11AA466C5009CC587 /* NSData+Param.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Param.m"; sourceTree = "<group>"; };
-		EE20AFE21AA466C5009CC587 /* NSString+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+File.h"; sourceTree = "<group>"; };
-		EE20AFE31AA466C5009CC587 /* NSString+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+File.m"; sourceTree = "<group>"; };
-		EE20AFE41AA466C5009CC587 /* NSURL+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+File.h"; sourceTree = "<group>"; };
-		EE20AFE51AA466C5009CC587 /* NSURL+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+File.m"; sourceTree = "<group>"; };
-		EE20AFE61AA466C5009CC587 /* UploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadFile.h; sourceTree = "<group>"; };
-		EE20AFE71AA466C5009CC587 /* UploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadFile.m; sourceTree = "<group>"; };
-		EEDFF6271AA4681B00401447 /* NSString+CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CoreHttp.h"; sourceTree = "<group>"; };
-		EEDFF6281AA4681B00401447 /* NSString+CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CoreHttp.m"; sourceTree = "<group>"; };
-		EEDFF62C1AA4698200401447 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		EEDFF62D1AA4698200401447 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		EEDFF62E1AA4698200401447 /* ToolStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolStatus.h; sourceTree = "<group>"; };
-		EEDFF62F1AA4698200401447 /* ToolStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolStatus.m; sourceTree = "<group>"; };
+		EE58398C1AB991DA00516AC1 /* CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreHttp.h; sourceTree = "<group>"; };
+		EE58398D1AB991DA00516AC1 /* CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreHttp.m; sourceTree = "<group>"; };
+		EE58398F1AB991DA00516AC1 /* NSString+CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CoreHttp.h"; sourceTree = "<group>"; };
+		EE5839901AB991DA00516AC1 /* NSString+CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CoreHttp.m"; sourceTree = "<group>"; };
+		EE5839941AB991DA00516AC1 /* NSData+MimeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MimeType.h"; sourceTree = "<group>"; };
+		EE5839951AB991DA00516AC1 /* NSData+MimeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MimeType.m"; sourceTree = "<group>"; };
+		EE5839961AB991DA00516AC1 /* NSData+Param.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Param.h"; sourceTree = "<group>"; };
+		EE5839971AB991DA00516AC1 /* NSData+Param.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Param.m"; sourceTree = "<group>"; };
+		EE5839981AB991DA00516AC1 /* NSString+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+File.h"; sourceTree = "<group>"; };
+		EE5839991AB991DA00516AC1 /* NSString+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+File.m"; sourceTree = "<group>"; };
+		EE58399A1AB991DA00516AC1 /* NSURL+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+File.h"; sourceTree = "<group>"; };
+		EE58399B1AB991DA00516AC1 /* NSURL+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+File.m"; sourceTree = "<group>"; };
+		EE58399C1AB991DA00516AC1 /* ToolConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolConnection.h; sourceTree = "<group>"; };
+		EE58399D1AB991DA00516AC1 /* ToolConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolConnection.m; sourceTree = "<group>"; };
+		EE58399E1AB991DA00516AC1 /* UploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadFile.h; sourceTree = "<group>"; };
+		EE58399F1AB991DA00516AC1 /* UploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadFile.m; sourceTree = "<group>"; };
 		EEDFF6321AA46F1D00401447 /* cut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cut.png; sourceTree = "<group>"; };
 		EEDFF6341AA46F8400401447 /* charlin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = charlin.jpg; sourceTree = "<group>"; };
-		EEDFF6361AA472C400401447 /* NSData+MimeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MimeType.h"; sourceTree = "<group>"; };
-		EEDFF6371AA472C400401447 /* NSData+MimeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MimeType.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +109,7 @@
 		EE20AFA41AA4668A009CC587 /* CoreHttp */ = {
 			isa = PBXGroup;
 			children = (
-				EE20AFDC1AA466C5009CC587 /* CoreHttp */,
+				EE58398B1AB991DA00516AC1 /* CoreHttp */,
 				EE20AFA91AA4668A009CC587 /* AppDelegate.h */,
 				EE20AFAA1AA4668A009CC587 /* AppDelegate.m */,
 				EE20AFAC1AA4668A009CC587 /* ViewController.h */,
@@ -153,61 +150,43 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EE20AFDC1AA466C5009CC587 /* CoreHttp */ = {
+		EE58398B1AB991DA00516AC1 /* CoreHttp */ = {
 			isa = PBXGroup;
 			children = (
-				EE20AFDD1AA466C5009CC587 /* CoreHttp.h */,
-				EE20AFDE1AA466C5009CC587 /* CoreHttp.m */,
-				EEDFF62A1AA4698200401447 /* ToolStatus */,
-				EEDFF6261AA4680500401447 /* NSString+CoreHttp */,
-				EE20AFDF1AA466C5009CC587 /* Upload */,
+				EE58398C1AB991DA00516AC1 /* CoreHttp.h */,
+				EE58398D1AB991DA00516AC1 /* CoreHttp.m */,
+				EE58398E1AB991DA00516AC1 /* NSString+CoreHttp */,
+				EE5839931AB991DA00516AC1 /* Upload */,
 			);
 			path = CoreHttp;
 			sourceTree = "<group>";
 		};
-		EE20AFDF1AA466C5009CC587 /* Upload */ = {
+		EE58398E1AB991DA00516AC1 /* NSString+CoreHttp */ = {
 			isa = PBXGroup;
 			children = (
-				EE20AFE01AA466C5009CC587 /* NSData+Param.h */,
-				EE20AFE11AA466C5009CC587 /* NSData+Param.m */,
-				EEDFF6361AA472C400401447 /* NSData+MimeType.h */,
-				EEDFF6371AA472C400401447 /* NSData+MimeType.m */,
-				EE20AFE21AA466C5009CC587 /* NSString+File.h */,
-				EE20AFE31AA466C5009CC587 /* NSString+File.m */,
-				EE20AFE41AA466C5009CC587 /* NSURL+File.h */,
-				EE20AFE51AA466C5009CC587 /* NSURL+File.m */,
-				EE20AFE61AA466C5009CC587 /* UploadFile.h */,
-				EE20AFE71AA466C5009CC587 /* UploadFile.m */,
-			);
-			path = Upload;
-			sourceTree = "<group>";
-		};
-		EEDFF6261AA4680500401447 /* NSString+CoreHttp */ = {
-			isa = PBXGroup;
-			children = (
-				EEDFF6271AA4681B00401447 /* NSString+CoreHttp.h */,
-				EEDFF6281AA4681B00401447 /* NSString+CoreHttp.m */,
+				EE58398F1AB991DA00516AC1 /* NSString+CoreHttp.h */,
+				EE5839901AB991DA00516AC1 /* NSString+CoreHttp.m */,
 			);
 			path = "NSString+CoreHttp";
 			sourceTree = "<group>";
 		};
-		EEDFF62A1AA4698200401447 /* ToolStatus */ = {
+		EE5839931AB991DA00516AC1 /* Upload */ = {
 			isa = PBXGroup;
 			children = (
-				EEDFF62B1AA4698200401447 /* Reachability */,
-				EEDFF62E1AA4698200401447 /* ToolStatus.h */,
-				EEDFF62F1AA4698200401447 /* ToolStatus.m */,
+				EE5839941AB991DA00516AC1 /* NSData+MimeType.h */,
+				EE5839951AB991DA00516AC1 /* NSData+MimeType.m */,
+				EE5839961AB991DA00516AC1 /* NSData+Param.h */,
+				EE5839971AB991DA00516AC1 /* NSData+Param.m */,
+				EE5839981AB991DA00516AC1 /* NSString+File.h */,
+				EE5839991AB991DA00516AC1 /* NSString+File.m */,
+				EE58399A1AB991DA00516AC1 /* NSURL+File.h */,
+				EE58399B1AB991DA00516AC1 /* NSURL+File.m */,
+				EE58399C1AB991DA00516AC1 /* ToolConnection.h */,
+				EE58399D1AB991DA00516AC1 /* ToolConnection.m */,
+				EE58399E1AB991DA00516AC1 /* UploadFile.h */,
+				EE58399F1AB991DA00516AC1 /* UploadFile.m */,
 			);
-			path = ToolStatus;
-			sourceTree = "<group>";
-		};
-		EEDFF62B1AA4698200401447 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				EEDFF62C1AA4698200401447 /* Reachability.h */,
-				EEDFF62D1AA4698200401447 /* Reachability.m */,
-			);
-			path = Reachability;
+			path = Upload;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,18 +291,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE20AFEB1AA466C5009CC587 /* NSURL+File.m in Sources */,
-				EE20AFE91AA466C5009CC587 /* NSData+Param.m in Sources */,
-				EEDFF6311AA4698200401447 /* ToolStatus.m in Sources */,
-				EEDFF6291AA4681B00401447 /* NSString+CoreHttp.m in Sources */,
-				EE20AFEA1AA466C5009CC587 /* NSString+File.m in Sources */,
-				EEDFF6301AA4698200401447 /* Reachability.m in Sources */,
 				EE20AFAE1AA4668A009CC587 /* ViewController.m in Sources */,
-				EE20AFEC1AA466C5009CC587 /* UploadFile.m in Sources */,
-				EEDFF6381AA472C400401447 /* NSData+MimeType.m in Sources */,
+				EE5839A11AB991DA00516AC1 /* NSString+CoreHttp.m in Sources */,
+				EE5839A21AB991DA00516AC1 /* NSData+MimeType.m in Sources */,
+				EE5839A71AB991DA00516AC1 /* UploadFile.m in Sources */,
 				EE20AFAB1AA4668A009CC587 /* AppDelegate.m in Sources */,
-				EE20AFE81AA466C5009CC587 /* CoreHttp.m in Sources */,
+				EE5839A01AB991DA00516AC1 /* CoreHttp.m in Sources */,
+				EE5839A41AB991DA00516AC1 /* NSString+File.m in Sources */,
 				EE20AFA81AA4668A009CC587 /* main.m in Sources */,
+				EE5839A61AB991DA00516AC1 /* ToolConnection.m in Sources */,
+				EE5839A51AB991DA00516AC1 /* NSURL+File.m in Sources */,
+				EE5839A31AB991DA00516AC1 /* NSData+Param.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

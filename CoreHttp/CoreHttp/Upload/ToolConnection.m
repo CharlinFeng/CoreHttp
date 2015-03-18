@@ -5,26 +5,27 @@
 //  Copyright (c) 2014年 muxi. All rights reserved.
 
 
-#import "CoreHttp.h"
-#import "NSString+CoreHttp.h"
-#import "CoreStatus.h"
+#import "ToolConnection.h"
+#import "NSString+Extend.h"
+#import "ToolStatus.h"
+#import "CoreCommonConstant.h"
 #import "NSData+Param.h"
-#import <UIKit/UIKit.h>
+
 
 //定义APP的POST请求是否以标准的JSON格式通讯
 const BOOL kURLConnectionMutualUseJson = NO;
 
-@implementation CoreHttp
+@implementation ToolConnection
 
 #pragma mark  请求前统一处理：如果是没有网络，则不论是GET请求还是POST请求，均无需继续处理
 +(BOOL)requestBeforeCheckNetWorkWithErrorBlock:(ErrorBlock)errorBlock{
     
-    BOOL isNETWORKEnable=[CoreStatus isNETWORKEnable];
+    BOOL isNETWORKEnable=[ToolStatus isNETWORKEnable];
     
     if(!isNETWORKEnable){//无网络
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            if(errorBlock!=nil) errorBlock(CoreHttpErrorTypeNoNetWork);
+            if(errorBlock!=nil) errorBlock(ToolErrorTypeNoNetWork);
         });
     }else{//有网络
         
@@ -134,21 +135,18 @@ const BOOL kURLConnectionMutualUseJson = NO;
             
             
         }else{
+            //非JSON，直接请求
+            NSMutableString *paraTempString=[NSMutableString string];
             
-            if(params!=nil){
-                //非JSON，直接请求
-                NSMutableString *paraTempString=[NSMutableString string];
-                
-                //拼接数据
-                [params enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-                    [paraTempString appendFormat:@"%@=%@&",key,obj];
-                }];
-                
-                //去除最后一个字符
-                NSString *paramsStr=[paraTempString substringToIndex:paraTempString.length-1];
-                
-                data=[paramsStr dataUsingEncoding:NSUTF8StringEncoding];
-            }
+            //拼接数据
+            [params enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                [paraTempString appendFormat:@"%@=%@&",key,obj];
+            }];
+            
+            //去除最后一个字符
+            NSString *paramsStr=[paraTempString substringToIndex:paraTempString.length-1];
+            
+            data=[paramsStr dataUsingEncoding:NSUTF8StringEncoding];
         }
         
         //设置数据体
@@ -181,7 +179,7 @@ const BOOL kURLConnectionMutualUseJson = NO;
     if(connectionError!=nil){
 
         //这个error有值，说明一定有错，URL地址有错，要么服务器没有响应。总之连接就有错
-        errorBlock(CoreHttpErrorTypeURLConnectionError);NSLog(@"网络请求错误日志（code=1）：URL地址有错，要么服务器没有响应。总之连接就有错。\n 请求URL=%@",urlString);
+        errorBlock(ToolErrorTypeURLConnectionError);NSLog(@"网络请求错误日志（code=1）：URL地址有错，要么服务器没有响应。总之连接就有错。\n 请求URL=%@",urlString);
         return;
     }else{
         //如果connectionError为nil，只能说url连接成功，但是url地址不一定正确，如服务器返回404状态码，表明页面找不到
@@ -190,7 +188,7 @@ const BOOL kURLConnectionMutualUseJson = NO;
         if(statusCode!=200){
 
             //即页面请求正确，但是状态码不正确，即页面请求失败
-            errorBlock(CoreHttpErrorTypeStatusCodeError);NSLog(@"网络请求错误日志（code=2）：服务器响应状态码不正确,当前状态码为：%@。 \n 请求URL=%@",@(statusCode),urlString);
+            errorBlock(ToolErrorTypeStatusCodeError);NSLog(@"网络请求错误日志（code=2）：服务器响应状态码不正确,当前状态码为：%i。 \n 请求URL=%@",statusCode,urlString);
             return;
         }
     }
@@ -199,7 +197,7 @@ const BOOL kURLConnectionMutualUseJson = NO;
     if(data == nil){
         
         //如果一切返回正常，但是服务器返回空数据，一样视为失败的一次请求，什么数据都没有请求到。
-        errorBlock(CoreHttpErrorTypeDataNilError);NSLog(@"网络请求错误日志（code=3.1）：服务器返回空数据，一样视为失败的一次请求，什么数据都没有请求到。\n 请求URL=%@",urlString);
+        errorBlock(ToolErrorTypeDataNilError);NSLog(@"网络请求错误日志（code=3.1）：服务器返回空数据，一样视为失败的一次请求，什么数据都没有请求到。\n 请求URL=%@",urlString);
         return;
     }
     
@@ -212,6 +210,7 @@ const BOOL kURLConnectionMutualUseJson = NO;
     NSString * dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 
     dataString = [dataString deleteSpecialCode];
+    
     NSData *correctStringData=[dataString dataUsingEncoding:NSUTF8StringEncoding];
   
     //实践证明，如果dataString=@""空字符串，是没有任何问题的
@@ -219,7 +218,7 @@ const BOOL kURLConnectionMutualUseJson = NO;
     if(dataString==nil || correctStringData==nil){
 
         //同样是DataNilError：前面是返回的处理前的Data=nil，这里是处理后的correctStringData=nil
-        errorBlock(CoreHttpErrorTypeDataNilError);NSLog(@"网络请求错误日志（code=3.2）：服务器返回的Data处理后为nil，相当于还是得到了无效的空数据。\n 请求URL=%@",urlString);
+        errorBlock(ToolErrorTypeDataNilError);NSLog(@"网络请求错误日志（code=3.2）：服务器返回的Data处理后为nil，相当于还是得到了无效的空数据。\n 请求URL=%@",urlString);
         return;
     }
     
@@ -229,14 +228,14 @@ const BOOL kURLConnectionMutualUseJson = NO;
     //判断解析是否出错
     if(error != nil){
         
-        errorBlock(CoreHttpErrorTypeDataSerializationError);NSLog(@"网络请求错误日志（code=6）：JSON数据解析时出错。\n 请求URL=%@",urlString);
+        errorBlock(ToolErrorTypeDataSerializationError);NSLog(@"网络请求错误日志（code=6）：JSON数据解析时出错。\n 请求URL=%@",urlString);
         return;
     }
 
     if(obj==nil){
 
         //解析之后数据为nil：
-        errorBlock(CoreHttpErrorTypeDataSerializationError);NSLog(@"网络请求错误日志（code=4）：解析之后数据为nil。\n 请求URL=%@",urlString);
+        errorBlock(ToolErrorTypeDataSerializationError);NSLog(@"网络请求错误日志（code=4）：解析之后数据为nil。\n 请求URL=%@",urlString);
         return;
     }
     
@@ -267,7 +266,10 @@ const BOOL kURLConnectionMutualUseJson = NO;
         
         //定义请求:设置缓存策略，超时时长
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:180.0f];
-
+        
+        // 4.设置请求头(告诉服务器这次传给你的是文件数据，告诉服务器现在发送的是一个文件上传请求)
+        [request setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", [NSData boundary]] forHTTPHeaderField:@"Content-Type"];
+        
         //指定请求方式
         request.HTTPMethod=@"POST";
         
@@ -294,7 +296,7 @@ const BOOL kURLConnectionMutualUseJson = NO;
         if(data.length==0){
             
             //解析之后数据为nil：
-            errorBlock(CoreHttpErrorTypeUploadDataNil);NSLog(@"网络请求错误日志（code=6）：POST数据全部为空，没有普通参数，没有文件。\n 请求URL=%@",urlStr);
+            errorBlock(ToolErrorTypeUploadDataNil);NSLog(@"网络请求错误日志（code=6）：POST数据全部为空，没有普通参数，没有文件。\n 请求URL=%@",urlStr);
             return;
         }
         
@@ -305,12 +307,6 @@ const BOOL kURLConnectionMutualUseJson = NO;
         
         //设置数据体
         request.HTTPBody=data;
-        
-        // 4.设置请求头(告诉服务器这次传给你的是文件数据，告诉服务器现在发送的是一个文件上传请求)
-
-        [request setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", [NSData boundary]] forHTTPHeaderField:@"Content-Type"];
-        // 请求体的长度
-        [request setValue:[NSString stringWithFormat:@"%zd", data.length] forHTTPHeaderField:@"Content-Length"];
         
         //POST请求
         [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
