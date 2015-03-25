@@ -9,6 +9,12 @@
 
 #### 框架依赖：<br />
 .CoreStatus<br />
+
+若使用APP级别APPHttp，还需要依赖以下框架：<br />
+.CoreToast<br />
+.CoreBtn<br />
+
+
 <br /><br />
 
 #### 框架特性：<br />
