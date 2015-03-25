@@ -20,8 +20,23 @@
 		EE5839A31AB991DA00516AC1 /* NSData+Param.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5839971AB991DA00516AC1 /* NSData+Param.m */; };
 		EE5839A41AB991DA00516AC1 /* NSString+File.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5839991AB991DA00516AC1 /* NSString+File.m */; };
 		EE5839A51AB991DA00516AC1 /* NSURL+File.m in Sources */ = {isa = PBXBuildFile; fileRef = EE58399B1AB991DA00516AC1 /* NSURL+File.m */; };
-		EE5839A61AB991DA00516AC1 /* ToolConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = EE58399D1AB991DA00516AC1 /* ToolConnection.m */; };
 		EE5839A71AB991DA00516AC1 /* UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EE58399F1AB991DA00516AC1 /* UploadFile.m */; };
+		EED78AA51AC2B853001083E1 /* APPHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78A951AC2B853001083E1 /* APPHttp.m */; };
+		EED78AA61AC2B853001083E1 /* AnimForCoreBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78A991AC2B853001083E1 /* AnimForCoreBtn.m */; };
+		EED78AA71AC2B853001083E1 /* CoreBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78A9B1AC2B853001083E1 /* CoreBtn.m */; };
+		EED78AA81AC2B853001083E1 /* CoreStatusBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78A9D1AC2B853001083E1 /* CoreStatusBtn.m */; };
+		EED78AA91AC2B853001083E1 /* UIImage+ColorForBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AA01AC2B853001083E1 /* UIImage+ColorForBtn.m */; };
+		EED78AAA1AC2B853001083E1 /* CoreStatusBtnMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AA31AC2B853001083E1 /* CoreStatusBtnMaskView.m */; };
+		EED78AAB1AC2B853001083E1 /* CoreStatusBtnMaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EED78AA41AC2B853001083E1 /* CoreStatusBtnMaskView.xib */; };
+		EED78ABC1AC2B899001083E1 /* CoreToast.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EED78AAD1AC2B899001083E1 /* CoreToast.bundle */; };
+		EED78ABD1AC2B899001083E1 /* CoreToast.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AAF1AC2B899001083E1 /* CoreToast.m */; };
+		EED78ABE1AC2B899001083E1 /* CRToast.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AB21AC2B899001083E1 /* CRToast.m */; };
+		EED78ABF1AC2B899001083E1 /* CRToastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AB51AC2B899001083E1 /* CRToastManager.m */; };
+		EED78AC01AC2B899001083E1 /* CRToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AB71AC2B899001083E1 /* CRToastView.m */; };
+		EED78AC11AC2B899001083E1 /* CRToastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AB91AC2B899001083E1 /* CRToastViewController.m */; };
+		EED78AC21AC2B899001083E1 /* CRToastWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78ABB1AC2B899001083E1 /* CRToastWindow.m */; };
+		EED78AC91AC2B8BD001083E1 /* CoreStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AC51AC2B8BD001083E1 /* CoreStatus.m */; };
+		EED78ACA1AC2B8BD001083E1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AC81AC2B8BD001083E1 /* Reachability.m */; };
 		EEDFF6331AA46F1D00401447 /* cut.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDFF6321AA46F1D00401447 /* cut.png */; };
 		EEDFF6351AA46F8400401447 /* charlin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EEDFF6341AA46F8400401447 /* charlin.jpg */; };
 /* End PBXBuildFile section */
@@ -62,10 +77,39 @@
 		EE5839991AB991DA00516AC1 /* NSString+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+File.m"; sourceTree = "<group>"; };
 		EE58399A1AB991DA00516AC1 /* NSURL+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+File.h"; sourceTree = "<group>"; };
 		EE58399B1AB991DA00516AC1 /* NSURL+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+File.m"; sourceTree = "<group>"; };
-		EE58399C1AB991DA00516AC1 /* ToolConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolConnection.h; sourceTree = "<group>"; };
-		EE58399D1AB991DA00516AC1 /* ToolConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolConnection.m; sourceTree = "<group>"; };
 		EE58399E1AB991DA00516AC1 /* UploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadFile.h; sourceTree = "<group>"; };
 		EE58399F1AB991DA00516AC1 /* UploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadFile.m; sourceTree = "<group>"; };
+		EED78A941AC2B853001083E1 /* APPHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPHttp.h; sourceTree = "<group>"; };
+		EED78A951AC2B853001083E1 /* APPHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPHttp.m; sourceTree = "<group>"; };
+		EED78A981AC2B853001083E1 /* AnimForCoreBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimForCoreBtn.h; sourceTree = "<group>"; };
+		EED78A991AC2B853001083E1 /* AnimForCoreBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimForCoreBtn.m; sourceTree = "<group>"; };
+		EED78A9A1AC2B853001083E1 /* CoreBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreBtn.h; sourceTree = "<group>"; };
+		EED78A9B1AC2B853001083E1 /* CoreBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreBtn.m; sourceTree = "<group>"; };
+		EED78A9C1AC2B853001083E1 /* CoreStatusBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreStatusBtn.h; sourceTree = "<group>"; };
+		EED78A9D1AC2B853001083E1 /* CoreStatusBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreStatusBtn.m; sourceTree = "<group>"; };
+		EED78A9F1AC2B853001083E1 /* UIImage+ColorForBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorForBtn.h"; sourceTree = "<group>"; };
+		EED78AA01AC2B853001083E1 /* UIImage+ColorForBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorForBtn.m"; sourceTree = "<group>"; };
+		EED78AA21AC2B853001083E1 /* CoreStatusBtnMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreStatusBtnMaskView.h; sourceTree = "<group>"; };
+		EED78AA31AC2B853001083E1 /* CoreStatusBtnMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreStatusBtnMaskView.m; sourceTree = "<group>"; };
+		EED78AA41AC2B853001083E1 /* CoreStatusBtnMaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoreStatusBtnMaskView.xib; sourceTree = "<group>"; };
+		EED78AAD1AC2B899001083E1 /* CoreToast.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CoreToast.bundle; sourceTree = "<group>"; };
+		EED78AAE1AC2B899001083E1 /* CoreToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreToast.h; sourceTree = "<group>"; };
+		EED78AAF1AC2B899001083E1 /* CoreToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreToast.m; sourceTree = "<group>"; };
+		EED78AB11AC2B899001083E1 /* CRToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToast.h; sourceTree = "<group>"; };
+		EED78AB21AC2B899001083E1 /* CRToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToast.m; sourceTree = "<group>"; };
+		EED78AB31AC2B899001083E1 /* CRToastLayoutHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastLayoutHelpers.h; sourceTree = "<group>"; };
+		EED78AB41AC2B899001083E1 /* CRToastManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastManager.h; sourceTree = "<group>"; };
+		EED78AB51AC2B899001083E1 /* CRToastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToastManager.m; sourceTree = "<group>"; };
+		EED78AB61AC2B899001083E1 /* CRToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastView.h; sourceTree = "<group>"; };
+		EED78AB71AC2B899001083E1 /* CRToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToastView.m; sourceTree = "<group>"; };
+		EED78AB81AC2B899001083E1 /* CRToastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastViewController.h; sourceTree = "<group>"; };
+		EED78AB91AC2B899001083E1 /* CRToastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToastViewController.m; sourceTree = "<group>"; };
+		EED78ABA1AC2B899001083E1 /* CRToastWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastWindow.h; sourceTree = "<group>"; };
+		EED78ABB1AC2B899001083E1 /* CRToastWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToastWindow.m; sourceTree = "<group>"; };
+		EED78AC41AC2B8BD001083E1 /* CoreStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreStatus.h; sourceTree = "<group>"; };
+		EED78AC51AC2B8BD001083E1 /* CoreStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreStatus.m; sourceTree = "<group>"; };
+		EED78AC71AC2B8BD001083E1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		EED78AC81AC2B8BD001083E1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		EEDFF6321AA46F1D00401447 /* cut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cut.png; sourceTree = "<group>"; };
 		EEDFF6341AA46F8400401447 /* charlin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = charlin.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +153,7 @@
 		EE20AFA41AA4668A009CC587 /* CoreHttp */ = {
 			isa = PBXGroup;
 			children = (
+				EED78A921AC2B853001083E1 /* FrameWorks */,
 				EE58398B1AB991DA00516AC1 /* CoreHttp */,
 				EE20AFA91AA4668A009CC587 /* AppDelegate.h */,
 				EE20AFAA1AA4668A009CC587 /* AppDelegate.m */,
@@ -181,12 +226,120 @@
 				EE5839991AB991DA00516AC1 /* NSString+File.m */,
 				EE58399A1AB991DA00516AC1 /* NSURL+File.h */,
 				EE58399B1AB991DA00516AC1 /* NSURL+File.m */,
-				EE58399C1AB991DA00516AC1 /* ToolConnection.h */,
-				EE58399D1AB991DA00516AC1 /* ToolConnection.m */,
 				EE58399E1AB991DA00516AC1 /* UploadFile.h */,
 				EE58399F1AB991DA00516AC1 /* UploadFile.m */,
 			);
 			path = Upload;
+			sourceTree = "<group>";
+		};
+		EED78A921AC2B853001083E1 /* FrameWorks */ = {
+			isa = PBXGroup;
+			children = (
+				EED78AC31AC2B8BD001083E1 /* CoreStatus */,
+				EED78AAC1AC2B899001083E1 /* CoreToast */,
+				EED78A931AC2B853001083E1 /* APPHttp */,
+				EED78A961AC2B853001083E1 /* CoreBtn */,
+			);
+			path = FrameWorks;
+			sourceTree = "<group>";
+		};
+		EED78A931AC2B853001083E1 /* APPHttp */ = {
+			isa = PBXGroup;
+			children = (
+				EED78A941AC2B853001083E1 /* APPHttp.h */,
+				EED78A951AC2B853001083E1 /* APPHttp.m */,
+			);
+			path = APPHttp;
+			sourceTree = "<group>";
+		};
+		EED78A961AC2B853001083E1 /* CoreBtn */ = {
+			isa = PBXGroup;
+			children = (
+				EED78A971AC2B853001083E1 /* Anim */,
+				EED78A9A1AC2B853001083E1 /* CoreBtn.h */,
+				EED78A9B1AC2B853001083E1 /* CoreBtn.m */,
+				EED78A9C1AC2B853001083E1 /* CoreStatusBtn.h */,
+				EED78A9D1AC2B853001083E1 /* CoreStatusBtn.m */,
+				EED78A9E1AC2B853001083E1 /* UIImage+ColorForBtn */,
+				EED78AA11AC2B853001083E1 /* View */,
+			);
+			path = CoreBtn;
+			sourceTree = "<group>";
+		};
+		EED78A971AC2B853001083E1 /* Anim */ = {
+			isa = PBXGroup;
+			children = (
+				EED78A981AC2B853001083E1 /* AnimForCoreBtn.h */,
+				EED78A991AC2B853001083E1 /* AnimForCoreBtn.m */,
+			);
+			path = Anim;
+			sourceTree = "<group>";
+		};
+		EED78A9E1AC2B853001083E1 /* UIImage+ColorForBtn */ = {
+			isa = PBXGroup;
+			children = (
+				EED78A9F1AC2B853001083E1 /* UIImage+ColorForBtn.h */,
+				EED78AA01AC2B853001083E1 /* UIImage+ColorForBtn.m */,
+			);
+			path = "UIImage+ColorForBtn";
+			sourceTree = "<group>";
+		};
+		EED78AA11AC2B853001083E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EED78AA21AC2B853001083E1 /* CoreStatusBtnMaskView.h */,
+				EED78AA31AC2B853001083E1 /* CoreStatusBtnMaskView.m */,
+				EED78AA41AC2B853001083E1 /* CoreStatusBtnMaskView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EED78AAC1AC2B899001083E1 /* CoreToast */ = {
+			isa = PBXGroup;
+			children = (
+				EED78AAD1AC2B899001083E1 /* CoreToast.bundle */,
+				EED78AAE1AC2B899001083E1 /* CoreToast.h */,
+				EED78AAF1AC2B899001083E1 /* CoreToast.m */,
+				EED78AB01AC2B899001083E1 /* CRToast */,
+			);
+			path = CoreToast;
+			sourceTree = "<group>";
+		};
+		EED78AB01AC2B899001083E1 /* CRToast */ = {
+			isa = PBXGroup;
+			children = (
+				EED78AB11AC2B899001083E1 /* CRToast.h */,
+				EED78AB21AC2B899001083E1 /* CRToast.m */,
+				EED78AB31AC2B899001083E1 /* CRToastLayoutHelpers.h */,
+				EED78AB41AC2B899001083E1 /* CRToastManager.h */,
+				EED78AB51AC2B899001083E1 /* CRToastManager.m */,
+				EED78AB61AC2B899001083E1 /* CRToastView.h */,
+				EED78AB71AC2B899001083E1 /* CRToastView.m */,
+				EED78AB81AC2B899001083E1 /* CRToastViewController.h */,
+				EED78AB91AC2B899001083E1 /* CRToastViewController.m */,
+				EED78ABA1AC2B899001083E1 /* CRToastWindow.h */,
+				EED78ABB1AC2B899001083E1 /* CRToastWindow.m */,
+			);
+			path = CRToast;
+			sourceTree = "<group>";
+		};
+		EED78AC31AC2B8BD001083E1 /* CoreStatus */ = {
+			isa = PBXGroup;
+			children = (
+				EED78AC41AC2B8BD001083E1 /* CoreStatus.h */,
+				EED78AC51AC2B8BD001083E1 /* CoreStatus.m */,
+				EED78AC61AC2B8BD001083E1 /* Reachability */,
+			);
+			path = CoreStatus;
+			sourceTree = "<group>";
+		};
+		EED78AC61AC2B8BD001083E1 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				EED78AC71AC2B8BD001083E1 /* Reachability.h */,
+				EED78AC81AC2B8BD001083E1 /* Reachability.m */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,8 +422,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EED78ABC1AC2B899001083E1 /* CoreToast.bundle in Resources */,
 				EE20AFB11AA4668A009CC587 /* Main.storyboard in Resources */,
 				EEDFF6351AA46F8400401447 /* charlin.jpg in Resources */,
+				EED78AAB1AC2B853001083E1 /* CoreStatusBtnMaskView.xib in Resources */,
 				EE20AFB61AA4668A009CC587 /* LaunchScreen.xib in Resources */,
 				EEDFF6331AA46F1D00401447 /* cut.png in Resources */,
 				EE20AFB31AA4668A009CC587 /* Images.xcassets in Resources */,
@@ -292,16 +447,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE20AFAE1AA4668A009CC587 /* ViewController.m in Sources */,
+				EED78AA81AC2B853001083E1 /* CoreStatusBtn.m in Sources */,
+				EED78AA51AC2B853001083E1 /* APPHttp.m in Sources */,
+				EED78AAA1AC2B853001083E1 /* CoreStatusBtnMaskView.m in Sources */,
+				EED78ACA1AC2B8BD001083E1 /* Reachability.m in Sources */,
 				EE5839A11AB991DA00516AC1 /* NSString+CoreHttp.m in Sources */,
 				EE5839A21AB991DA00516AC1 /* NSData+MimeType.m in Sources */,
 				EE5839A71AB991DA00516AC1 /* UploadFile.m in Sources */,
+				EED78AC11AC2B899001083E1 /* CRToastViewController.m in Sources */,
+				EED78AA91AC2B853001083E1 /* UIImage+ColorForBtn.m in Sources */,
+				EED78AC01AC2B899001083E1 /* CRToastView.m in Sources */,
+				EED78AC21AC2B899001083E1 /* CRToastWindow.m in Sources */,
 				EE20AFAB1AA4668A009CC587 /* AppDelegate.m in Sources */,
+				EED78AA61AC2B853001083E1 /* AnimForCoreBtn.m in Sources */,
 				EE5839A01AB991DA00516AC1 /* CoreHttp.m in Sources */,
 				EE5839A41AB991DA00516AC1 /* NSString+File.m in Sources */,
+				EED78ABD1AC2B899001083E1 /* CoreToast.m in Sources */,
 				EE20AFA81AA4668A009CC587 /* main.m in Sources */,
-				EE5839A61AB991DA00516AC1 /* ToolConnection.m in Sources */,
+				EED78ABF1AC2B899001083E1 /* CRToastManager.m in Sources */,
 				EE5839A51AB991DA00516AC1 /* NSURL+File.m in Sources */,
+				EED78AC91AC2B8BD001083E1 /* CoreStatus.m in Sources */,
+				EED78ABE1AC2B899001083E1 /* CRToast.m in Sources */,
 				EE5839A31AB991DA00516AC1 /* NSData+Param.m in Sources */,
+				EED78AA71AC2B853001083E1 /* CoreBtn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
