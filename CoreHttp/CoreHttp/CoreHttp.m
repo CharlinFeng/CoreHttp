@@ -145,7 +145,7 @@ const BOOL kURLConnectionMutualUseJson = NO;
                 }];
                 
                 //去除最后一个字符
-                NSString *paramsStr=[paraTempString substringToIndex:paraTempString.length-1];
+                NSString *paramsStr=[[paraTempString substringToIndex:paraTempString.length-1] deleteSpecialCode];
                 
                 data=[paramsStr dataUsingEncoding:NSUTF8StringEncoding];
             }

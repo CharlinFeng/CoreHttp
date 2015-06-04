@@ -26,15 +26,20 @@
 
 
 
-- (IBAction)get:(id)sender {
+- (IBAction)request:(id)sender {
     
     NSString *url=@"http://localhost/test.php";
     
-    [CoreHttp getUrl:url params:nil success:^(id obj) {
+    NSDictionary *params = @{@"arr":@[@(1),@(2),@(3)]};
+    [CoreHttp postUrl:url params:params success:^(id obj) {
+        
         NSLog(@"正确");
+        
     } errorBlock:^(CoreHttpErrorType errorType) {
+        
         NSLog(@"出错");
     }];
+
 }
 
 - (IBAction)upload:(id)sender {
