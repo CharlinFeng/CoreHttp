@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "CoreHttp.h"
-#import "NSString+CoreHttp.h"
+#import "APPHttp.h"
+
 
 @interface ViewController ()
 
@@ -19,10 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *str= @"fdfsfffds\r fdsfsa \n     {}fdaf fewaf";
-    
-    NSLog(@"%@，%@",str,str.deleteSpecialCode);
-    
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self requestBegin];
+    });
 }
 
 
@@ -30,31 +31,25 @@
 
 
 
-- (IBAction)request:(id)sender {
+- (void)requestBegin{
     
-    NSString *url=@"http://localhost/test.php";
+    NSString *url = @"a.com";
+
+    NSDictionary *params = nil;
     
-    NSDictionary *params = @{@"arr":@[@(1),@(2),@(3)]};
-    [CoreHttp postUrl:url params:params success:^(id obj) {
+    [APPHttp getUrl:url params:params target:nil type:APPHttpTypeSVP success:^(id obj) {
         
-        NSLog(@"正确");
+        NSLog(@"请求成功");
         
     } errorBlock:^(CoreHttpErrorType errorType) {
         
-        NSLog(@"出错");
+        NSLog(@"请求失败");
+        
     }];
 
 }
 
-- (IBAction)upload:(id)sender {
 
-    UIImage *img=[UIImage imageNamed:@"charlin.jpg"];
-    
-    //转data
-    NSData *data=UIImageJPEGRepresentation(img, .8f);
-
-    
-}
 
 
 

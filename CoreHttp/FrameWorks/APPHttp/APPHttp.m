@@ -8,73 +8,133 @@
 
 #import "APPHttp.h"
 #import "CoreToast.h"
+#import "CoreViewNetWorkStausManager.h"
+#import "CoreSVP.h"
 
 
 @implementation APPHttp
 
+
+/** 请求开始，展示指示器 */
++(void)requestBeginWithUrl:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
+
+    if(APPHttpTypeStatusView == type){ //显示指示视图
+        
+        [CoreViewNetWorkStausManager show:target type:CMTypeLoadingWithImage msg:@"请稍等" subMsg:@"努力加载中" offsetY:0 failClickBlock:^{
+           
+            [self getUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
+        }];
+    }else if (APPHttpTypeBtn == type){ //状态按钮
+        
+        CoreStatusBtn *statusBtn = (CoreStatusBtn *)target;
+        
+        statusBtn.status = CoreStatusBtnStatusProgress;
+        
+    }else if (APPHttpTypeSVP == type){ //SVP
+        
+        [CoreSVP showSVPWithType:CoreSVPTypeLoadingInterface Msg:@"加载中" duration:0 allowEdit:NO beginBlock:nil completeBlock:nil];
+    }
+
+    
+}
+
+
+
+
+
 /**
  *  GET:
  *  params中可指明参数类型
+ *  target:
+ *   APPHttpTypeStatusView  ：view
+ *   APPHttpTypeSVP         ：nil
+ *   APPHttpTypeBtn         ：btn
  */
-+(void)getUrl:(NSString *)urlString params:(NSDictionary *)params btn:(CoreStatusBtn *)btn success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
++(void)getUrl:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
+    
+    //请求开始指示器
+    [self requestBeginWithUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
     
     [CoreHttp getUrl:urlString params:params success:^(id obj) {
-        [self success:obj btn:btn successBlock:successBlock errorBlock:errorBlock];
+        
+        [self success:obj url:urlString params:params target:target type:type method:APPHttpMethodGET successBlock:successBlock errorBlock:errorBlock];
+        
     } errorBlock:^(CoreHttpErrorType errorType) {
-        if(errorBlock!=nil) errorBlock(errorType);
-        [self error:errorType btn:btn errorMsg:nil];
+
+        [self error:errorType errorMsg:nil method:APPHttpMethodGET url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
+        
     }];
 }
+
 
 /**
  *  POST:
+ *   APPHttpTypeStatusView  ：view
+ *   APPHttpTypeSVP         ：nil
+ *   APPHttpTypeBtn         ：btn
  */
-+(void)postUrl:(NSString *)urlString params:(NSDictionary *)params btn:(CoreStatusBtn *)btn success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
++(void)postUrl:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
+    
+    //请求开始指示器
+    [self requestBeginWithUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
     
     [CoreHttp postUrl:urlString params:params success:^(id obj) {
-        [self success:obj btn:btn successBlock:successBlock errorBlock:errorBlock];
+    
+        [self success:obj url:urlString params:params target:target type:type method:APPHttpMethodPOST successBlock:successBlock errorBlock:errorBlock];
+        
     } errorBlock:^(CoreHttpErrorType errorType) {
-        if(errorBlock!=nil) errorBlock(errorType);
-        [self error:errorType btn:btn errorMsg:nil];
+        
+        [self error:errorType errorMsg:nil method:APPHttpMethodPOST url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
     }];
 }
 
-
-/**
- *  文件上传
- *  @params: 普通参数
- *  @files : 文件数据，里面装的都是UploadFile对象
- */
-+(void)uploadUrl:(NSString *)uploadUrl params:(NSDictionary *)params btn:(CoreStatusBtn *)btn files:(NSArray *)files success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
-    [CoreHttp uploadUrl:uploadUrl params:params files:files success:^(id obj) {
-        [self success:obj btn:btn successBlock:successBlock errorBlock:errorBlock];
-    } errorBlock:^(CoreHttpErrorType errorType) {
-        if(errorBlock!=nil) errorBlock(errorType);
-        [self error:errorType btn:btn errorMsg:nil];
-    }];
-}
 
 
 /**
  *  错误处理
  */
-+(void)error:(CoreHttpErrorType)errorType btn:(CoreStatusBtn *)btn errorMsg:(NSString *)errorMsg{
++(void)error:(CoreHttpErrorType)errorType errorMsg:(NSString *)errorMsg method:(APPHttpMethod)method url:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
     
-    //btn给出状态指示
-    if(btn!=nil) btn.status=CoreStatusBtnStatusFalse;
-    NSLog(@"来了");
-    NSString *msg=(CoreHttpErrorTypeNoNetWork == errorType)?@"无网络连接":@"操作不成功";
+    if(errorMsg == nil || errorMsg.length ==0) errorMsg = @"请求失败";
     
-    NSString *realErrorMsg=errorMsg==nil?@"请稍后重试！":errorMsg;
-    NSString *subMsg=(CoreHttpErrorTypeNoNetWork == errorType)?@"请检查网络连接设置":realErrorMsg;
-    [CoreToast showMsgType:CoreToastMsgTypeError msg:msg subMsg:subMsg timeInterval:2.0f trigger:nil apperanceBlock:nil completionBlock:nil];
+    if(APPHttpTypeStatusView == type){ // 视图指示器
+        
+        if(APPHttpMethodGET == method){ //GET
+            
+            [CoreViewNetWorkStausManager show:target type:CMTypeError msg:@"注意" subMsg:errorMsg offsetY:0 failClickBlock:^{
+                [self getUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
+            }];
+            
+        }else{ //POST
+            
+            [CoreViewNetWorkStausManager show:target type:CMTypeError msg:@"注意" subMsg:errorMsg offsetY:0 failClickBlock:^{
+                [self postUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
+            }];
+            
+        }
+
+    }else if (APPHttpTypeBtn == type){ //状态按钮
+        
+        CoreStatusBtn *btn = (CoreStatusBtn *)target;
+        
+        //设置状态
+        btn.status = CoreSVPTypeError;
+        
+    }else if (APPHttpTypeSVP == type){
+        
+        [CoreSVP showSVPWithType:CoreSVPTypeError Msg:errorMsg duration:2.0f allowEdit:NO beginBlock:nil completeBlock:nil];
+    }
+  
+    //执行回调
+    if(errorBlock != nil) errorBlock(errorType);
+    
 }
 
 
 /**
  *  数据处理
  */
-+(void)success:(id)obj btn:(CoreStatusBtn *)btn successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
++(void)success:(id)obj url:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type method:(APPHttpMethod)method successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
     
     if(![obj isKindOfClass:[NSDictionary class]]){
         NSLog(@"数据异常，服务器返回的数据不是字典！");return;
@@ -92,13 +152,29 @@
         id msgObj=obj[@"data"];
         if([msgObj isKindOfClass:[NSString class]]) errorMsg=msgObj;
 
-        [self error:CoreHttpErrorTypeServiceRetrunErrorStatus btn:btn errorMsg:errorMsg];
+        [self error:CoreHttpErrorTypeServiceRetrunErrorStatus errorMsg:errorMsg method:method url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
+
         return;
     }
     
     //这里才是真正成功的地方
     //状态指示
-    if(btn!=nil) btn.status=CoreStatusBtnStatusSuccess;
+    if(APPHttpTypeStatusView == type){ //视图指示器
+        
+        //隐藏
+        [CoreViewNetWorkStausManager dismiss:target animated:YES];
+        
+    }else if (APPHttpTypeBtn == type){ //状态按钮
+        
+        CoreStatusBtn *btn = (CoreStatusBtn *)target;
+        
+        btn.status = CoreStatusBtnStatusSuccess;
+        
+    }else if (APPHttpTypeSVP == type){ //SVP
+        
+        [CoreSVP dismiss];
+    }
+    
     
     //剥离数据
     id appObj=obj[@"data"];

@@ -10,6 +10,13 @@
 #import <UIKit/UIKit.h>
 #import "CoreHttp.h"
 #import "CoreStatusBtn.h"
+#import "APPHttpType.h"
+
+
+
+
+
+
 
 @interface APPHttp : NSObject
 
@@ -17,23 +24,24 @@
 /**
  *  GET:
  *  params中可指明参数类型
+ *  target:
+ *   APPHttpTypeStatusView  ：view
+ *   APPHttpTypeSVP         ：nil
+ *   APPHttpTypeBtn         ：btn
  */
-+(void)getUrl:(NSString *)urlString params:(NSDictionary *)params btn:(CoreStatusBtn *)btn success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
++(void)getUrl:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
 
 
 /**
  *  POST:
+ *   APPHttpTypeStatusView  ：view
+ *   APPHttpTypeSVP         ：nil
+ *   APPHttpTypeBtn         ：btn
  */
-+(void)postUrl:(NSString *)urlString params:(NSDictionary *)params btn:(CoreStatusBtn *)btn success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
++(void)postUrl:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
 
 
-/**
- *  文件上传
- *  @params: 普通参数
- *  @files : 文件数据，里面装的都是UploadFile对象
- */
-+(void)uploadUrl:(NSString *)uploadUrl params:(NSDictionary *)params btn:(CoreStatusBtn *)btn files:(NSArray *)files success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
 @end
