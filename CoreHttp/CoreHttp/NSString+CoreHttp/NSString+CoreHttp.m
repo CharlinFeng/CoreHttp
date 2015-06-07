@@ -12,26 +12,20 @@
 
 
 
-/**
- *  处理json格式的字符串中的换行符、回车符
- */
+
+/** 处理json格式的字符串中的换行符、回车符 */
 -(NSString *)deleteSpecialCode {
     
-    NSString *string = [self stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+    NSArray *deleteStrArray = @[@"\r",@"\n",@"\t",@"{",@"}",@" "];
     
-    string = [string stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    __block NSString *str = self;
     
-    string = [string stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    
-    string = [string stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-    
-    string = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
-    string = [string stringByReplacingOccurrencesOfString:@"(" withString:@""];
-    
-    string = [string stringByReplacingOccurrencesOfString:@")" withString:@""];
-    
-    return string;
+    [deleteStrArray enumerateObjectsUsingBlock:^(NSString *deleteStr, NSUInteger idx, BOOL *stop) {
+        
+        str = [str stringByReplacingOccurrencesOfString:deleteStr withString:@""];
+    }];
+
+    return str;
 }
 
 @end

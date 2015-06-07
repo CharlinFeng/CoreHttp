@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "CoreHttp.h"
+#import "NSString+CoreHttp.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSString *str= @"fdfsfffds\r fdsfsa \n     {}fdaf fewaf";
+    
+    NSLog(@"%@，%@",str,str.deleteSpecialCode);
     
 }
 

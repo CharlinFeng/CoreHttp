@@ -10,12 +10,8 @@
 
 @interface NSString (CoreHttp)
 
-/**
- *  处理json格式的字符串中的换行符、回车符
- */
--(NSString *)deleteSpecialCode;
-
-
+//处理json格式的字符串中的换行符、回车符
+@property (nonatomic,copy,readonly) NSString *deleteSpecialCode;
 
 
 @end
