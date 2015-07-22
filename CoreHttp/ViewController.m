@@ -33,7 +33,7 @@
 
 - (void)requestBegin{
     
-    NSString *url = @"a.com";
+    NSString *url = @"http://211.149.151.92/lailai/MyApi/slide";
 
     NSDictionary *params = nil;
     

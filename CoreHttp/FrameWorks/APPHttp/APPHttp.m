@@ -144,7 +144,7 @@
     //1.取出状态码
     NSString *status=obj[@"status"];
     
-    if(![status isEqualToString:@"success"]){
+    if(![status isEqualToString:@"200"]){
         
         //服务器抛出错误
         //取出错误信息

@@ -7,13 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8955C2671B242AC200135D55 /* CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 8955C2581B242AC200135D55 /* CoreHttp.m */; };
-		8955C2681B242AC200135D55 /* NSString+CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 8955C25B1B242AC200135D55 /* NSString+CoreHttp.m */; };
-		8955C2691B242AC200135D55 /* NSData+MimeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8955C25E1B242AC200135D55 /* NSData+MimeType.m */; };
-		8955C26A1B242AC200135D55 /* NSData+Param.m in Sources */ = {isa = PBXBuildFile; fileRef = 8955C2601B242AC200135D55 /* NSData+Param.m */; };
-		8955C26B1B242AC200135D55 /* NSString+File.m in Sources */ = {isa = PBXBuildFile; fileRef = 8955C2621B242AC200135D55 /* NSString+File.m */; };
-		8955C26C1B242AC200135D55 /* NSURL+File.m in Sources */ = {isa = PBXBuildFile; fileRef = 8955C2641B242AC200135D55 /* NSURL+File.m */; };
-		8955C26D1B242AC200135D55 /* UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8955C2661B242AC200135D55 /* UploadFile.m */; };
 		8955C2761B244C3E00135D55 /* CoreViewNetWorkStausManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8955C2701B244C3E00135D55 /* CoreViewNetWorkStausManager.m */; };
 		8955C2771B244C3E00135D55 /* CM.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8955C2721B244C3E00135D55 /* CM.bundle */; };
 		8955C2781B244C3E00135D55 /* CMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8955C2741B244C3E00135D55 /* CMView.m */; };
@@ -23,6 +16,13 @@
 		8955C2881B244C9200135D55 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8955C2811B244C9200135D55 /* SVIndefiniteAnimatedView.m */; };
 		8955C2891B244C9200135D55 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8955C2831B244C9200135D55 /* SVProgressHUD.bundle */; };
 		8955C28A1B244C9200135D55 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8955C2851B244C9200135D55 /* SVProgressHUD.m */; };
+		899D657C1B5F9EF500870EC2 /* CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D656D1B5F9EF500870EC2 /* CoreHttp.m */; };
+		899D657D1B5F9EF500870EC2 /* NSString+CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D65701B5F9EF500870EC2 /* NSString+CoreHttp.m */; };
+		899D657E1B5F9EF500870EC2 /* NSData+MimeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D65731B5F9EF500870EC2 /* NSData+MimeType.m */; };
+		899D657F1B5F9EF500870EC2 /* NSData+Param.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D65751B5F9EF500870EC2 /* NSData+Param.m */; };
+		899D65801B5F9EF500870EC2 /* NSString+File.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D65771B5F9EF500870EC2 /* NSString+File.m */; };
+		899D65811B5F9EF500870EC2 /* NSURL+File.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D65791B5F9EF500870EC2 /* NSURL+File.m */; };
+		899D65821B5F9EF500870EC2 /* UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D657B1B5F9EF500870EC2 /* UploadFile.m */; };
 		EE20AFA81AA4668A009CC587 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFA71AA4668A009CC587 /* main.m */; };
 		EE20AFAB1AA4668A009CC587 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFAA1AA4668A009CC587 /* AppDelegate.m */; };
 		EE20AFAE1AA4668A009CC587 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20AFAD1AA4668A009CC587 /* ViewController.m */; };
@@ -61,20 +61,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8955C2571B242AC200135D55 /* CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreHttp.h; sourceTree = "<group>"; };
-		8955C2581B242AC200135D55 /* CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreHttp.m; sourceTree = "<group>"; };
-		8955C25A1B242AC200135D55 /* NSString+CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CoreHttp.h"; sourceTree = "<group>"; };
-		8955C25B1B242AC200135D55 /* NSString+CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CoreHttp.m"; sourceTree = "<group>"; };
-		8955C25D1B242AC200135D55 /* NSData+MimeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MimeType.h"; sourceTree = "<group>"; };
-		8955C25E1B242AC200135D55 /* NSData+MimeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MimeType.m"; sourceTree = "<group>"; };
-		8955C25F1B242AC200135D55 /* NSData+Param.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Param.h"; sourceTree = "<group>"; };
-		8955C2601B242AC200135D55 /* NSData+Param.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Param.m"; sourceTree = "<group>"; };
-		8955C2611B242AC200135D55 /* NSString+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+File.h"; sourceTree = "<group>"; };
-		8955C2621B242AC200135D55 /* NSString+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+File.m"; sourceTree = "<group>"; };
-		8955C2631B242AC200135D55 /* NSURL+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+File.h"; sourceTree = "<group>"; };
-		8955C2641B242AC200135D55 /* NSURL+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+File.m"; sourceTree = "<group>"; };
-		8955C2651B242AC200135D55 /* UploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadFile.h; sourceTree = "<group>"; };
-		8955C2661B242AC200135D55 /* UploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadFile.m; sourceTree = "<group>"; };
 		8955C26F1B244C3E00135D55 /* CoreViewNetWorkStausManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreViewNetWorkStausManager.h; sourceTree = "<group>"; };
 		8955C2701B244C3E00135D55 /* CoreViewNetWorkStausManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreViewNetWorkStausManager.m; sourceTree = "<group>"; };
 		8955C2721B244C3E00135D55 /* CM.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CM.bundle; sourceTree = "<group>"; };
@@ -91,6 +77,20 @@
 		8955C2841B244C9200135D55 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		8955C2851B244C9200135D55 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		8955C28D1B2452EF00135D55 /* APPHttpType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPHttpType.h; sourceTree = "<group>"; };
+		899D656C1B5F9EF500870EC2 /* CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreHttp.h; sourceTree = "<group>"; };
+		899D656D1B5F9EF500870EC2 /* CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreHttp.m; sourceTree = "<group>"; };
+		899D656F1B5F9EF500870EC2 /* NSString+CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CoreHttp.h"; sourceTree = "<group>"; };
+		899D65701B5F9EF500870EC2 /* NSString+CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CoreHttp.m"; sourceTree = "<group>"; };
+		899D65721B5F9EF500870EC2 /* NSData+MimeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MimeType.h"; sourceTree = "<group>"; };
+		899D65731B5F9EF500870EC2 /* NSData+MimeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MimeType.m"; sourceTree = "<group>"; };
+		899D65741B5F9EF500870EC2 /* NSData+Param.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Param.h"; sourceTree = "<group>"; };
+		899D65751B5F9EF500870EC2 /* NSData+Param.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Param.m"; sourceTree = "<group>"; };
+		899D65761B5F9EF500870EC2 /* NSString+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+File.h"; sourceTree = "<group>"; };
+		899D65771B5F9EF500870EC2 /* NSString+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+File.m"; sourceTree = "<group>"; };
+		899D65781B5F9EF500870EC2 /* NSURL+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+File.h"; sourceTree = "<group>"; };
+		899D65791B5F9EF500870EC2 /* NSURL+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+File.m"; sourceTree = "<group>"; };
+		899D657A1B5F9EF500870EC2 /* UploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadFile.h; sourceTree = "<group>"; };
+		899D657B1B5F9EF500870EC2 /* UploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadFile.m; sourceTree = "<group>"; };
 		EE20AFA21AA4668A009CC587 /* CoreHttp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreHttp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE20AFA61AA4668A009CC587 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE20AFA71AA4668A009CC587 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -157,43 +157,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8955C2561B242AC200135D55 /* CoreHttp */ = {
-			isa = PBXGroup;
-			children = (
-				8955C2571B242AC200135D55 /* CoreHttp.h */,
-				8955C2581B242AC200135D55 /* CoreHttp.m */,
-				8955C2591B242AC200135D55 /* NSString+CoreHttp */,
-				8955C25C1B242AC200135D55 /* Upload */,
-			);
-			path = CoreHttp;
-			sourceTree = "<group>";
-		};
-		8955C2591B242AC200135D55 /* NSString+CoreHttp */ = {
-			isa = PBXGroup;
-			children = (
-				8955C25A1B242AC200135D55 /* NSString+CoreHttp.h */,
-				8955C25B1B242AC200135D55 /* NSString+CoreHttp.m */,
-			);
-			path = "NSString+CoreHttp";
-			sourceTree = "<group>";
-		};
-		8955C25C1B242AC200135D55 /* Upload */ = {
-			isa = PBXGroup;
-			children = (
-				8955C25D1B242AC200135D55 /* NSData+MimeType.h */,
-				8955C25E1B242AC200135D55 /* NSData+MimeType.m */,
-				8955C25F1B242AC200135D55 /* NSData+Param.h */,
-				8955C2601B242AC200135D55 /* NSData+Param.m */,
-				8955C2611B242AC200135D55 /* NSString+File.h */,
-				8955C2621B242AC200135D55 /* NSString+File.m */,
-				8955C2631B242AC200135D55 /* NSURL+File.h */,
-				8955C2641B242AC200135D55 /* NSURL+File.m */,
-				8955C2651B242AC200135D55 /* UploadFile.h */,
-				8955C2661B242AC200135D55 /* UploadFile.m */,
-			);
-			path = Upload;
-			sourceTree = "<group>";
-		};
 		8955C26E1B244C3E00135D55 /* CoreViewNetWorkStausManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +226,43 @@
 			path = Type;
 			sourceTree = "<group>";
 		};
+		899D656B1B5F9EF500870EC2 /* CoreHttp */ = {
+			isa = PBXGroup;
+			children = (
+				899D656C1B5F9EF500870EC2 /* CoreHttp.h */,
+				899D656D1B5F9EF500870EC2 /* CoreHttp.m */,
+				899D656E1B5F9EF500870EC2 /* NSString+CoreHttp */,
+				899D65711B5F9EF500870EC2 /* Upload */,
+			);
+			path = CoreHttp;
+			sourceTree = "<group>";
+		};
+		899D656E1B5F9EF500870EC2 /* NSString+CoreHttp */ = {
+			isa = PBXGroup;
+			children = (
+				899D656F1B5F9EF500870EC2 /* NSString+CoreHttp.h */,
+				899D65701B5F9EF500870EC2 /* NSString+CoreHttp.m */,
+			);
+			path = "NSString+CoreHttp";
+			sourceTree = "<group>";
+		};
+		899D65711B5F9EF500870EC2 /* Upload */ = {
+			isa = PBXGroup;
+			children = (
+				899D65721B5F9EF500870EC2 /* NSData+MimeType.h */,
+				899D65731B5F9EF500870EC2 /* NSData+MimeType.m */,
+				899D65741B5F9EF500870EC2 /* NSData+Param.h */,
+				899D65751B5F9EF500870EC2 /* NSData+Param.m */,
+				899D65761B5F9EF500870EC2 /* NSString+File.h */,
+				899D65771B5F9EF500870EC2 /* NSString+File.m */,
+				899D65781B5F9EF500870EC2 /* NSURL+File.h */,
+				899D65791B5F9EF500870EC2 /* NSURL+File.m */,
+				899D657A1B5F9EF500870EC2 /* UploadFile.h */,
+				899D657B1B5F9EF500870EC2 /* UploadFile.m */,
+			);
+			path = Upload;
+			sourceTree = "<group>";
+		};
 		EE20AF991AA4668A009CC587 = {
 			isa = PBXGroup;
 			children = (
@@ -284,7 +284,7 @@
 		EE20AFA41AA4668A009CC587 /* CoreHttp */ = {
 			isa = PBXGroup;
 			children = (
-				8955C2561B242AC200135D55 /* CoreHttp */,
+				899D656B1B5F9EF500870EC2 /* CoreHttp */,
 				EED78A921AC2B853001083E1 /* FrameWorks */,
 				EE20AFA91AA4668A009CC587 /* AppDelegate.h */,
 				EE20AFAA1AA4668A009CC587 /* AppDelegate.m */,
@@ -547,30 +547,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8955C26C1B242AC200135D55 /* NSURL+File.m in Sources */,
 				EE20AFAE1AA4668A009CC587 /* ViewController.m in Sources */,
 				EED78AA81AC2B853001083E1 /* CoreStatusBtn.m in Sources */,
+				899D65821B5F9EF500870EC2 /* UploadFile.m in Sources */,
 				EED78AA51AC2B853001083E1 /* APPHttp.m in Sources */,
-				8955C26D1B242AC200135D55 /* UploadFile.m in Sources */,
-				8955C26B1B242AC200135D55 /* NSString+File.m in Sources */,
 				EED78AAA1AC2B853001083E1 /* CoreStatusBtnMaskView.m in Sources */,
-				8955C2691B242AC200135D55 /* NSData+MimeType.m in Sources */,
+				899D65801B5F9EF500870EC2 /* NSString+File.m in Sources */,
+				899D657E1B5F9EF500870EC2 /* NSData+MimeType.m in Sources */,
 				EED78ACA1AC2B8BD001083E1 /* Reachability.m in Sources */,
 				8955C28A1B244C9200135D55 /* SVProgressHUD.m in Sources */,
-				8955C26A1B242AC200135D55 /* NSData+Param.m in Sources */,
+				899D657C1B5F9EF500870EC2 /* CoreHttp.m in Sources */,
 				EED78AC11AC2B899001083E1 /* CRToastViewController.m in Sources */,
 				EED78AA91AC2B853001083E1 /* UIImage+ColorForBtn.m in Sources */,
 				EED78AC01AC2B899001083E1 /* CRToastView.m in Sources */,
-				8955C2671B242AC200135D55 /* CoreHttp.m in Sources */,
 				8955C2781B244C3E00135D55 /* CMView.m in Sources */,
+				899D657F1B5F9EF500870EC2 /* NSData+Param.m in Sources */,
+				899D65811B5F9EF500870EC2 /* NSURL+File.m in Sources */,
 				EED78AC21AC2B899001083E1 /* CRToastWindow.m in Sources */,
 				8955C2871B244C9200135D55 /* CoreSVP.m in Sources */,
 				EE20AFAB1AA4668A009CC587 /* AppDelegate.m in Sources */,
-				8955C2681B242AC200135D55 /* NSString+CoreHttp.m in Sources */,
 				8955C2881B244C9200135D55 /* SVIndefiniteAnimatedView.m in Sources */,
 				EED78AA61AC2B853001083E1 /* AnimForCoreBtn.m in Sources */,
 				EED78ABD1AC2B899001083E1 /* CoreToast.m in Sources */,
 				EE20AFA81AA4668A009CC587 /* main.m in Sources */,
+				899D657D1B5F9EF500870EC2 /* NSString+CoreHttp.m in Sources */,
 				EED78ABF1AC2B899001083E1 /* CRToastManager.m in Sources */,
 				8955C2761B244C3E00135D55 /* CoreViewNetWorkStausManager.m in Sources */,
 				EED78AC91AC2B8BD001083E1 /* CoreStatus.m in Sources */,
