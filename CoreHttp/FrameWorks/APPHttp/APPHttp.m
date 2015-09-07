@@ -7,7 +7,6 @@
 //
 
 #import "APPHttp.h"
-#import "CoreToast.h"
 #import "CoreViewNetWorkStausManager.h"
 #import "CoreSVP.h"
 
@@ -137,7 +136,10 @@
 +(void)success:(id)obj url:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type method:(APPHttpMethod)method successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
     
     if(![obj isKindOfClass:[NSDictionary class]]){
-        NSLog(@"数据异常，服务器返回的数据不是字典！");return;
+        NSLog(@"数据异常，服务器返回的数据不是字典！");
+        
+        [self error:CoreHttpErrorTypeDataSerializationError errorMsg:@"数据异常" method:method url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
+        return;
     }
     
     //项目数据处理

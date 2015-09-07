@@ -43,6 +43,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
     
     __block NSString *urlStr=urlString;
     
+    
     //GET请求放入子线程中处理
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
@@ -81,8 +82,11 @@ static const BOOL kURLConnectionMutualUseJson = NO;
         //定义请求:设置缓存策略，超时时长
         NSURLRequest *request=[NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0f];
         
+        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+        
         //异步请求
-        [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+            
             
             //请求结束，统一处理
             [self disposeUrlString:(NSString *)urlStr response:response data:data error:connectionError success:successBlock error:errorBlock];
@@ -225,6 +229,10 @@ static const BOOL kURLConnectionMutualUseJson = NO;
     
     //数据解析:结果为一定是数组或者字典。其中是字典的可能性非常大。
     id obj=[NSJSONSerialization JSONObjectWithData:correctStringData options:NSJSONReadingAllowFragments error:&error];
+    
+    successBlock(obj);
+    
+    return;
     
     //判断解析是否出错
     if(error != nil){

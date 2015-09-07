@@ -12,6 +12,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic,strong) NSOperationQueue *queue;
+
 @end
 
 @implementation ViewController
@@ -19,11 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [self requestBegin];
-    });
+    [self beginAction:nil];
 }
 
 
@@ -31,24 +29,23 @@
 
 
 
-- (void)requestBegin{
+- (IBAction)beginAction:(id)sender {
     
-    NSString *url = @"http://211.149.151.92/lailai/MyApi/slide";
+    NSString *url = @"http://211.149.151.92/mytest/Test/test2";
 
-    NSDictionary *params = nil;
+    NSDictionary *params = @{@"times":@(3000000)};
     
-    [APPHttp getUrl:url params:params target:nil type:APPHttpTypeSVP success:^(id obj) {
-        
+    [APPHttp postUrl:url params:params target:nil type:APPHttpTypeBtn success:^(id obj) {
         NSLog(@"请求成功");
-        
-    } errorBlock:^(CoreHttpErrorType errorType) {
-        
-        NSLog(@"请求失败");
-        
-    }];
+    } errorBlock:nil];
 
 }
 
+
+- (IBAction)endAction:(id)sender {
+
+    
+}
 
 
 

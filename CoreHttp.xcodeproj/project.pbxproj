@@ -37,13 +37,6 @@
 		EED78AA91AC2B853001083E1 /* UIImage+ColorForBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AA01AC2B853001083E1 /* UIImage+ColorForBtn.m */; };
 		EED78AAA1AC2B853001083E1 /* CoreStatusBtnMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AA31AC2B853001083E1 /* CoreStatusBtnMaskView.m */; };
 		EED78AAB1AC2B853001083E1 /* CoreStatusBtnMaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EED78AA41AC2B853001083E1 /* CoreStatusBtnMaskView.xib */; };
-		EED78ABC1AC2B899001083E1 /* CoreToast.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EED78AAD1AC2B899001083E1 /* CoreToast.bundle */; };
-		EED78ABD1AC2B899001083E1 /* CoreToast.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AAF1AC2B899001083E1 /* CoreToast.m */; };
-		EED78ABE1AC2B899001083E1 /* CRToast.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AB21AC2B899001083E1 /* CRToast.m */; };
-		EED78ABF1AC2B899001083E1 /* CRToastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AB51AC2B899001083E1 /* CRToastManager.m */; };
-		EED78AC01AC2B899001083E1 /* CRToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AB71AC2B899001083E1 /* CRToastView.m */; };
-		EED78AC11AC2B899001083E1 /* CRToastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AB91AC2B899001083E1 /* CRToastViewController.m */; };
-		EED78AC21AC2B899001083E1 /* CRToastWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78ABB1AC2B899001083E1 /* CRToastWindow.m */; };
 		EED78AC91AC2B8BD001083E1 /* CoreStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AC51AC2B8BD001083E1 /* CoreStatus.m */; };
 		EED78ACA1AC2B8BD001083E1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AC81AC2B8BD001083E1 /* Reachability.m */; };
 		EEDFF6331AA46F1D00401447 /* cut.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDFF6321AA46F1D00401447 /* cut.png */; };
@@ -117,20 +110,6 @@
 		EED78AA21AC2B853001083E1 /* CoreStatusBtnMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreStatusBtnMaskView.h; sourceTree = "<group>"; };
 		EED78AA31AC2B853001083E1 /* CoreStatusBtnMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreStatusBtnMaskView.m; sourceTree = "<group>"; };
 		EED78AA41AC2B853001083E1 /* CoreStatusBtnMaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoreStatusBtnMaskView.xib; sourceTree = "<group>"; };
-		EED78AAD1AC2B899001083E1 /* CoreToast.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CoreToast.bundle; sourceTree = "<group>"; };
-		EED78AAE1AC2B899001083E1 /* CoreToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreToast.h; sourceTree = "<group>"; };
-		EED78AAF1AC2B899001083E1 /* CoreToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreToast.m; sourceTree = "<group>"; };
-		EED78AB11AC2B899001083E1 /* CRToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToast.h; sourceTree = "<group>"; };
-		EED78AB21AC2B899001083E1 /* CRToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToast.m; sourceTree = "<group>"; };
-		EED78AB31AC2B899001083E1 /* CRToastLayoutHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastLayoutHelpers.h; sourceTree = "<group>"; };
-		EED78AB41AC2B899001083E1 /* CRToastManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastManager.h; sourceTree = "<group>"; };
-		EED78AB51AC2B899001083E1 /* CRToastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToastManager.m; sourceTree = "<group>"; };
-		EED78AB61AC2B899001083E1 /* CRToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastView.h; sourceTree = "<group>"; };
-		EED78AB71AC2B899001083E1 /* CRToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToastView.m; sourceTree = "<group>"; };
-		EED78AB81AC2B899001083E1 /* CRToastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastViewController.h; sourceTree = "<group>"; };
-		EED78AB91AC2B899001083E1 /* CRToastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToastViewController.m; sourceTree = "<group>"; };
-		EED78ABA1AC2B899001083E1 /* CRToastWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastWindow.h; sourceTree = "<group>"; };
-		EED78ABB1AC2B899001083E1 /* CRToastWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToastWindow.m; sourceTree = "<group>"; };
 		EED78AC41AC2B8BD001083E1 /* CoreStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreStatus.h; sourceTree = "<group>"; };
 		EED78AC51AC2B8BD001083E1 /* CoreStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreStatus.m; sourceTree = "<group>"; };
 		EED78AC71AC2B8BD001083E1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -332,7 +311,6 @@
 				8955C27A1B244C9200135D55 /* CoreSVP */,
 				8955C26E1B244C3E00135D55 /* CoreViewNetWorkStausManager */,
 				EED78AC31AC2B8BD001083E1 /* CoreStatus */,
-				EED78AAC1AC2B899001083E1 /* CoreToast */,
 				EED78A931AC2B853001083E1 /* APPHttp */,
 				EED78A961AC2B853001083E1 /* CoreBtn */,
 			);
@@ -389,35 +367,6 @@
 				EED78AA41AC2B853001083E1 /* CoreStatusBtnMaskView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		EED78AAC1AC2B899001083E1 /* CoreToast */ = {
-			isa = PBXGroup;
-			children = (
-				EED78AAD1AC2B899001083E1 /* CoreToast.bundle */,
-				EED78AAE1AC2B899001083E1 /* CoreToast.h */,
-				EED78AAF1AC2B899001083E1 /* CoreToast.m */,
-				EED78AB01AC2B899001083E1 /* CRToast */,
-			);
-			path = CoreToast;
-			sourceTree = "<group>";
-		};
-		EED78AB01AC2B899001083E1 /* CRToast */ = {
-			isa = PBXGroup;
-			children = (
-				EED78AB11AC2B899001083E1 /* CRToast.h */,
-				EED78AB21AC2B899001083E1 /* CRToast.m */,
-				EED78AB31AC2B899001083E1 /* CRToastLayoutHelpers.h */,
-				EED78AB41AC2B899001083E1 /* CRToastManager.h */,
-				EED78AB51AC2B899001083E1 /* CRToastManager.m */,
-				EED78AB61AC2B899001083E1 /* CRToastView.h */,
-				EED78AB71AC2B899001083E1 /* CRToastView.m */,
-				EED78AB81AC2B899001083E1 /* CRToastViewController.h */,
-				EED78AB91AC2B899001083E1 /* CRToastViewController.m */,
-				EED78ABA1AC2B899001083E1 /* CRToastWindow.h */,
-				EED78ABB1AC2B899001083E1 /* CRToastWindow.m */,
-			);
-			path = CRToast;
 			sourceTree = "<group>";
 		};
 		EED78AC31AC2B8BD001083E1 /* CoreStatus */ = {
@@ -519,7 +468,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EED78ABC1AC2B899001083E1 /* CoreToast.bundle in Resources */,
 				8955C2771B244C3E00135D55 /* CM.bundle in Resources */,
 				8955C2861B244C9200135D55 /* CoreSVP.bundle in Resources */,
 				EE20AFB11AA4668A009CC587 /* Main.storyboard in Resources */,
@@ -557,24 +505,18 @@
 				EED78ACA1AC2B8BD001083E1 /* Reachability.m in Sources */,
 				8955C28A1B244C9200135D55 /* SVProgressHUD.m in Sources */,
 				899D657C1B5F9EF500870EC2 /* CoreHttp.m in Sources */,
-				EED78AC11AC2B899001083E1 /* CRToastViewController.m in Sources */,
 				EED78AA91AC2B853001083E1 /* UIImage+ColorForBtn.m in Sources */,
-				EED78AC01AC2B899001083E1 /* CRToastView.m in Sources */,
 				8955C2781B244C3E00135D55 /* CMView.m in Sources */,
 				899D657F1B5F9EF500870EC2 /* NSData+Param.m in Sources */,
 				899D65811B5F9EF500870EC2 /* NSURL+File.m in Sources */,
-				EED78AC21AC2B899001083E1 /* CRToastWindow.m in Sources */,
 				8955C2871B244C9200135D55 /* CoreSVP.m in Sources */,
 				EE20AFAB1AA4668A009CC587 /* AppDelegate.m in Sources */,
 				8955C2881B244C9200135D55 /* SVIndefiniteAnimatedView.m in Sources */,
 				EED78AA61AC2B853001083E1 /* AnimForCoreBtn.m in Sources */,
-				EED78ABD1AC2B899001083E1 /* CoreToast.m in Sources */,
 				EE20AFA81AA4668A009CC587 /* main.m in Sources */,
 				899D657D1B5F9EF500870EC2 /* NSString+CoreHttp.m in Sources */,
-				EED78ABF1AC2B899001083E1 /* CRToastManager.m in Sources */,
 				8955C2761B244C3E00135D55 /* CoreViewNetWorkStausManager.m in Sources */,
 				EED78AC91AC2B8BD001083E1 /* CoreStatus.m in Sources */,
-				EED78ABE1AC2B899001083E1 /* CRToast.m in Sources */,
 				EED78AA71AC2B853001083E1 /* CoreBtn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
