@@ -19,10 +19,12 @@
 
     if(APPHttpTypeStatusView == type){ //显示指示视图
         
-        [CoreViewNetWorkStausManager show:target type:CMTypeLoadingWithImage msg:@"请稍等" subMsg:@"努力加载中" offsetY:0 failClickBlock:^{
-           
-            [self getUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
-        }];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [CoreViewNetWorkStausManager show:target type:CMTypeLoadingWithImage msg:@"请稍等" subMsg:@"努力加载中" offsetY:0 failClickBlock:^{
+                
+                [self getUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
+            }];
+        });
     }else if (APPHttpTypeBtn == type){ //状态按钮
         
         CoreStatusBtn *statusBtn = (CoreStatusBtn *)target;
@@ -98,20 +100,23 @@
     
     if(APPHttpTypeStatusView == type){ // 视图指示器
         
-        if(APPHttpMethodGET == method){ //GET
+        dispatch_async(dispatch_get_main_queue(), ^{
             
-            [CoreViewNetWorkStausManager show:target type:CMTypeError msg:@"注意" subMsg:errorMsg offsetY:0 failClickBlock:^{
-                [self getUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
-            }];
-            
-        }else{ //POST
-            
-            [CoreViewNetWorkStausManager show:target type:CMTypeError msg:@"注意" subMsg:errorMsg offsetY:0 failClickBlock:^{
-                [self postUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
-            }];
-            
-        }
+            if(APPHttpMethodGET == method){ //GET
+                
+                [CoreViewNetWorkStausManager show:target type:CMTypeError msg:@"注意" subMsg:errorMsg offsetY:0 failClickBlock:^{
+                    [self getUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
+                }];
+                
+            }else{ //POST
+                
+                [CoreViewNetWorkStausManager show:target type:CMTypeError msg:@"注意" subMsg:errorMsg offsetY:0 failClickBlock:^{
+                    [self postUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
+                }];
+                
+            }
 
+        });
     }else if (APPHttpTypeBtn == type){ //状态按钮
         
         CoreStatusBtn *btn = (CoreStatusBtn *)target;
@@ -163,8 +168,10 @@
     //状态指示
     if(APPHttpTypeStatusView == type){ //视图指示器
         
-        //隐藏
-        [CoreViewNetWorkStausManager dismiss:target animated:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //隐藏
+            [CoreViewNetWorkStausManager dismiss:target animated:YES];
+        });
         
     }else if (APPHttpTypeBtn == type){ //状态按钮
         

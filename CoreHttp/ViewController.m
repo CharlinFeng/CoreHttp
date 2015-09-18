@@ -26,17 +26,14 @@
 
 
 
-
-
-
 - (IBAction)beginAction:(id)sender {
     
     NSString *url = @"http://211.149.151.92/mytest/Test/test2";
-
-    NSDictionary *params = @{@"times":@(3000000)};
     
-    [APPHttp postUrl:url params:params target:nil type:APPHttpTypeBtn success:^(id obj) {
-        NSLog(@"请求成功");
+    [APPHttp postUrl:url params:nil target:self.view type:APPHttpTypeStatusView success:^(id obj) {
+        
+        NSLog(@"请求成功:%@",obj);
+        
     } errorBlock:nil];
 
 }

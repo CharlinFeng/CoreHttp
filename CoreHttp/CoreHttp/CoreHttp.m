@@ -229,11 +229,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
     
     //数据解析:结果为一定是数组或者字典。其中是字典的可能性非常大。
     id obj=[NSJSONSerialization JSONObjectWithData:correctStringData options:NSJSONReadingAllowFragments error:&error];
-    
-    successBlock(obj);
-    
-    return;
-    
+
     //判断解析是否出错
     if(error != nil){
         
@@ -249,7 +245,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
     }
     
     //处理成功
-    successBlock(obj);
+    if(successBlock != nil) successBlock(obj);
 }
 
 
@@ -314,11 +310,14 @@ static const BOOL kURLConnectionMutualUseJson = NO;
         //设置数据体
         request.HTTPBody=data;
         
-        // 4.设置请求头(告诉服务器这次传给你的是文件数据，告诉服务器现在发送的是一个文件上传请求)
-
+        // 设置请求头(告诉服务器这次传给你的是文件数据，告诉服务器现在发送的是一个文件上传请求)
         [request setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", [NSData boundary]] forHTTPHeaderField:@"Content-Type"];
+        
         // 请求体的长度
         [request setValue:[NSString stringWithFormat:@"%zd", data.length] forHTTPHeaderField:@"Content-Length"];
+
+        // 请求体的客户端信息
+        [request setValue: @"iPhone" forHTTPHeaderField: @"User-Agent"];
         
         //POST请求
         [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -326,6 +325,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
             //请求结束，统一处理
             [self disposeUrlString:urlStr response:response data:data error:connectionError success:successBlock error:errorBlock];
         }];
+        
     });
 }
 
