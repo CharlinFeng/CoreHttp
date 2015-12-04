@@ -7,7 +7,7 @@
 //
 
 #import "APPHttp.h"
-#import "CoreViewNetWorkStausManager.h"
+#import "CoreIV.h"
 #import "CoreSVP.h"
 
 
@@ -20,7 +20,8 @@
     if(APPHttpTypeStatusView == type){ //显示指示视图
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [CoreViewNetWorkStausManager show:target type:CMTypeLoadingWithImage msg:@"请稍等" subMsg:@"努力加载中" offsetY:0 failClickBlock:^{
+            
+            [CoreIV showWithType:IVTypeLoad view:target msg:@"努力加载中" failClickBlock:^{
                 
                 [self getUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
             }];
@@ -103,14 +104,14 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             
             if(APPHttpMethodGET == method){ //GET
-                
-                [CoreViewNetWorkStausManager show:target type:CMTypeError msg:@"注意" subMsg:errorMsg offsetY:0 failClickBlock:^{
+                [CoreIV showWithType:IVTypeError view:target msg:errorMsg failClickBlock:^{
+                    
                     [self getUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
                 }];
                 
             }else{ //POST
                 
-                [CoreViewNetWorkStausManager show:target type:CMTypeError msg:@"注意" subMsg:errorMsg offsetY:0 failClickBlock:^{
+                [CoreIV showWithType:IVTypeError view:target msg:errorMsg failClickBlock:^{
                     [self postUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
                 }];
                 
@@ -141,10 +142,7 @@
 +(void)success:(id)obj url:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type method:(APPHttpMethod)method successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
     
     if(![obj isKindOfClass:[NSDictionary class]]){
-        NSLog(@"数据异常，服务器返回的数据不是字典！");
-        
-        [self error:CoreHttpErrorTypeDataSerializationError errorMsg:@"数据异常" method:method url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
-        return;
+        NSLog(@"数据异常，服务器返回的数据不是字典！");return;
     }
     
     //项目数据处理
@@ -156,41 +154,56 @@
         //服务器抛出错误
         //取出错误信息
         NSString *errorMsg=@"服务器抛出错误";
-        id msgObj=obj[@"data"];
+        id msgObj=obj[@"msg"];
         if([msgObj isKindOfClass:[NSString class]]) errorMsg=msgObj;
-
         [self error:CoreHttpErrorTypeServiceRetrunErrorStatus errorMsg:errorMsg method:method url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
-
         return;
+    }else{
+        
+        //剥离数据
+        NSDictionary *dataDict=obj[@"res"];
+        //1.取出状态码
+        NSString *dataStatus=dataDict[@"res_status"];
+        
+        if(![dataStatus isEqualToString:@"200"]){
+            
+            //服务器抛出错误
+            //取出错误信息
+            NSString *errorMsg=@"服务器抛出错误";
+            id msgObj=dataDict[@"res_msg"];
+            if([msgObj isKindOfClass:[NSString class]]) errorMsg=msgObj;
+            
+            [self error:CoreHttpErrorTypeServiceRetrunErrorStatus errorMsg:errorMsg method:method url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
+            return;
+        }else{
+            
+            
+            //这里才是真正成功的地方
+            //状态指示
+            if(APPHttpTypeStatusView == type){ //视图指示器
+                
+                //隐藏
+                [CoreIV dismissFromView:target animated:YES];
+                
+            }else if (APPHttpTypeBtn == type){ //状态按钮
+                
+                CoreStatusBtn *btn = (CoreStatusBtn *)target;
+                
+                btn.status = CoreStatusBtnStatusSuccess;
+                
+            }else if (APPHttpTypeSVP == type){ //SVP
+                
+                [CoreSVP dismiss];
+            }
+            
+            //剥离数据
+            id appObj=dataDict[@"res_data"];
+            
+            successBlock(appObj);
+            
+        }
+        
     }
-    
-    //这里才是真正成功的地方
-    //状态指示
-    if(APPHttpTypeStatusView == type){ //视图指示器
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //隐藏
-            [CoreViewNetWorkStausManager dismiss:target animated:YES];
-        });
-        
-    }else if (APPHttpTypeBtn == type){ //状态按钮
-        
-        CoreStatusBtn *btn = (CoreStatusBtn *)target;
-        
-        btn.status = CoreStatusBtnStatusSuccess;
-        
-    }else if (APPHttpTypeSVP == type){ //SVP
-        
-        [CoreSVP dismiss];
-    }
-    
-    
-    //剥离数据
-    id appObj=obj[@"data"];
-    
-    successBlock(appObj);
 }
-
-
 
 @end
