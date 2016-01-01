@@ -13,12 +13,8 @@
 #import "APPHttpType.h"
 
 
-
-
-
-
-
 @interface APPHttp : NSObject
+
 
 
 /**
@@ -29,7 +25,7 @@
  *   APPHttpTypeSVP         ：nil
  *   APPHttpTypeBtn         ：btn
  */
-+(void)getUrl:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
++(void)getUrl:(NSString *)urlString params:(id)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
 
 
@@ -39,9 +35,17 @@
  *   APPHttpTypeSVP         ：nil
  *   APPHttpTypeBtn         ：btn
  */
-+(void)postUrl:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
++(void)postUrl:(NSString *)urlString params:(id)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
 
+
+/**
+ *  UPLOAD:
+ *   APPHttpTypeStatusView  ：view
+ *   APPHttpTypeSVP         ：nil
+ *   APPHttpTypeBtn         ：btn
+ */
++(void)uploadUrl:(NSString *)uploadUrl params:(id)params files:(NSArray *)files target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
 
 @end

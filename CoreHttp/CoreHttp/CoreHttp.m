@@ -14,6 +14,7 @@
 //定义APP的POST请求是否以标准的JSON格式通讯
 static const BOOL kURLConnectionMutualUseJson = NO;
 
+
 @implementation CoreHttp
 
 #pragma mark  请求前统一处理：如果是没有网络，则不论是GET请求还是POST请求，均无需继续处理
@@ -39,7 +40,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
 
 
 #pragma mark  GET
-+(void)getUrl:(NSString *)urlString params:(NSDictionary *)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
++(void)getUrl:(NSString *)urlString params:(id)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
     
     __block NSString *urlStr=urlString;
     
@@ -98,7 +99,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
 
 
 #pragma mark  POST:
-+(void)postUrl:(NSString *)urlString params:(NSDictionary *)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
++(void)postUrl:(NSString *)urlString params:(id)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
     
     __block NSString *urlStr=urlString;
     
@@ -130,22 +131,37 @@ static const BOOL kURLConnectionMutualUseJson = NO;
             //将字典转为json数据格式的字符串：
             NSError *dict2JsonError=nil;
             data=[NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&dict2JsonError];
-            
-            if(dict2JsonError != nil){//使用苹果自带的dict转json出错
-                NSLog(@"网络请求错误日志（code=0）：POST传递json数据时出现错误，数据体为：%@\n 请求URL=%@",params,urlString);
-                return;
-            }
+            NSString *errorMsg = [NSString stringWithFormat:@"网络请求错误日志（code=0）：POST传递json数据时出现错误，数据体为：%@\n 请求URL=%@",params,urlString];
+            NSAssert(dict2JsonError == nil, errorMsg);
             
             
         }else{
             
             if(params!=nil){
+                
                 //非JSON，直接请求
                 NSMutableString *paraTempString=[NSMutableString string];
                 
                 //拼接数据
-                [params enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-                    [paraTempString appendFormat:@"%@=%@&",key,obj];
+                [params enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
+                    
+                    if (![obj isKindOfClass:[NSArray class]]) {
+                        
+                        [paraTempString appendFormat:@"%@=%@&",key,obj];
+                        
+                    }else{
+                        
+                        //将字典转为json数据格式的字符串：
+                        NSError *dict2JsonError=nil;
+
+                        NSData *arr_json_data = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:&dict2JsonError];
+                        
+                        NSString *errorMsg = [NSString stringWithFormat:@"网络请求错误日志（code=0）：POST传递json数据时出现错误，数据体为：%@\n 请求URL=%@",params,urlString];
+                        NSAssert(dict2JsonError == nil, errorMsg);
+     
+                        NSString *arr_json_string = [[NSString alloc] initWithData:arr_json_data encoding:NSUTF8StringEncoding];
+                        [paraTempString appendFormat:@"%@=%@&",key,arr_json_string];
+                    }
                 }];
                 
                 //去除最后一个字符
@@ -214,7 +230,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
     //有的JSON数据格式不是很规范，格式里面包含了回车，换行以及TAB等制表符，我们应该先清除一下这些制表符再进行反序列化。
     
     NSString * dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-
+    NSLog(@"json: ---- %@",dataString);
     dataString = [dataString deleteSpecialCode];
     NSData *correctStringData=[dataString dataUsingEncoding:NSUTF8StringEncoding];
   
@@ -253,7 +269,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
 
 
 #pragma mark  文件上传
-+(void)uploadUrl:(NSString *)uploadUrl params:(NSDictionary *)params files:(NSArray *)files success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
++(void)uploadUrl:(NSString *)uploadUrl params:(id)params files:(NSArray *)files beginBlock:(void(^)())beginBlock progressBlock:(void(^)(CGFloat p))progressBlock success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
     
     __block NSString *urlStr=uploadUrl;
     
@@ -261,7 +277,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         //请求前网络检查
-        if(![self requestBeforeCheckNetWorkWithErrorBlock:errorBlock]) return;
+        if(![CoreHttp requestBeforeCheckNetWorkWithErrorBlock:errorBlock]) return;
         
         //urlStr格式化
         urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -271,7 +287,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
         
         //定义请求:设置缓存策略，超时时长
         NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:180.0f];
-
+        
         //指定请求方式
         request.HTTPMethod=@"POST";
         
@@ -279,12 +295,13 @@ static const BOOL kURLConnectionMutualUseJson = NO;
         
         //如果有普通参数才需要拼接
         if(params!=nil){
+            
             //拼接普通参数数据
             NSData *uploadNormalParamsData=[NSData uploadParameterForNormalParams:params];
             //拼接
             [data appendData:uploadNormalParamsData];
         }
-
+        
         //如果有文件参数才需要拼接
         if(files !=nil || files.count!=0){
             
@@ -315,23 +332,21 @@ static const BOOL kURLConnectionMutualUseJson = NO;
         
         // 请求体的长度
         [request setValue:[NSString stringWithFormat:@"%zd", data.length] forHTTPHeaderField:@"Content-Length"];
-
+        
         // 请求体的客户端信息
         [request setValue: @"iPhone" forHTTPHeaderField: @"User-Agent"];
         
-        //POST请求
         [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-
+            
             //请求结束，统一处理
-            [self disposeUrlString:urlStr response:response data:data error:connectionError success:successBlock error:errorBlock];
+            [CoreHttp disposeUrlString:urlStr response:response data:data error:connectionError success:successBlock error:errorBlock];
         }];
-        
     });
 }
 
 
 
-
-
-
 @end
+
+
+

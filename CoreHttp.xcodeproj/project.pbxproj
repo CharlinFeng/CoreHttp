@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		890022A31C3619B800487EB9 /* 1.zip in Resources */ = {isa = PBXBuildFile; fileRef = 890022A21C3619B800487EB9 /* 1.zip */; };
 		8901BF541C115A46004F7E81 /* CoreIV.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901BF0A1C115A46004F7E81 /* CoreIV.m */; };
 		8901BF551C115A46004F7E81 /* CoreIV.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8901BF0B1C115A46004F7E81 /* CoreIV.xib */; };
 		8901BF561C115A46004F7E81 /* DGActivityIndicatorBallBeatAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901BF101C115A46004F7E81 /* DGActivityIndicatorBallBeatAnimation.m */; };
@@ -86,6 +87,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		890022991C360E1F00487EB9 /* APPHttpType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPHttpType.h; sourceTree = "<group>"; };
+		890022A21C3619B800487EB9 /* 1.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = 1.zip; sourceTree = "<group>"; };
 		8901BF091C115A46004F7E81 /* CoreIV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreIV.h; sourceTree = "<group>"; };
 		8901BF0A1C115A46004F7E81 /* CoreIV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreIV.m; sourceTree = "<group>"; };
 		8901BF0B1C115A46004F7E81 /* CoreIV.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoreIV.xib; sourceTree = "<group>"; };
@@ -167,7 +170,6 @@
 		8955C2831B244C9200135D55 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		8955C2841B244C9200135D55 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		8955C2851B244C9200135D55 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
-		8955C28D1B2452EF00135D55 /* APPHttpType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPHttpType.h; sourceTree = "<group>"; };
 		899D656C1B5F9EF500870EC2 /* CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreHttp.h; sourceTree = "<group>"; };
 		899D656D1B5F9EF500870EC2 /* CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreHttp.m; sourceTree = "<group>"; };
 		899D656F1B5F9EF500870EC2 /* NSString+CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CoreHttp.h"; sourceTree = "<group>"; };
@@ -372,17 +374,9 @@
 		8955C28B1B2452D900135D55 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				8955C28C1B2452D900135D55 /* Type */,
+				890022991C360E1F00487EB9 /* APPHttpType.h */,
 			);
 			path = Lib;
-			sourceTree = "<group>";
-		};
-		8955C28C1B2452D900135D55 /* Type */ = {
-			isa = PBXGroup;
-			children = (
-				8955C28D1B2452EF00135D55 /* APPHttpType.h */,
-			);
-			path = Type;
 			sourceTree = "<group>";
 		};
 		899D656B1B5F9EF500870EC2 /* CoreHttp */ = {
@@ -460,6 +454,7 @@
 		EE20AFA51AA4668A009CC587 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				890022A21C3619B800487EB9 /* 1.zip */,
 				EEDFF6341AA46F8400401447 /* charlin.jpg */,
 				EEDFF6321AA46F1D00401447 /* cut.png */,
 				EE20AFA61AA4668A009CC587 /* Info.plist */,
@@ -649,6 +644,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8955C2861B244C9200135D55 /* CoreSVP.bundle in Resources */,
+				890022A31C3619B800487EB9 /* 1.zip in Resources */,
 				EE20AFB11AA4668A009CC587 /* Main.storyboard in Resources */,
 				EEDFF6351AA46F8400401447 /* charlin.jpg in Resources */,
 				EED78AAB1AC2B853001083E1 /* CoreStatusBtnMaskView.xib in Resources */,

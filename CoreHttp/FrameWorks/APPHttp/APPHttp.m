@@ -11,11 +11,18 @@
 #import "CoreSVP.h"
 
 
+
+
+
+
+
+
+
 @implementation APPHttp
 
 
 /** 请求开始，展示指示器 */
-+(void)requestBeginWithUrl:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
++(void)requestBeginWithUrl:(NSString *)urlString params:(id)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
 
     if(APPHttpTypeStatusView == type){ //显示指示视图
         
@@ -52,7 +59,7 @@
  *   APPHttpTypeSVP         ：nil
  *   APPHttpTypeBtn         ：btn
  */
-+(void)getUrl:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
++(void)getUrl:(NSString *)urlString params:(id)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
     
     //请求开始指示器
     [self requestBeginWithUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
@@ -75,7 +82,7 @@
  *   APPHttpTypeSVP         ：nil
  *   APPHttpTypeBtn         ：btn
  */
-+(void)postUrl:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
++(void)postUrl:(NSString *)urlString params:(id)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
     
     //请求开始指示器
     [self requestBeginWithUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
@@ -89,6 +96,32 @@
         [self error:errorType errorMsg:nil method:APPHttpMethodPOST url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
     }];
 }
+
+
+/**
+ *  UPLOAD:
+ *   APPHttpTypeStatusView  ：view
+ *   APPHttpTypeSVP         ：nil
+ *   APPHttpTypeBtn         ：btn
+ */
++(void)uploadUrl:(NSString *)uploadUrl params:(id)params files:(NSArray *)files target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
+
+    //请求开始指示器
+    [self requestBeginWithUrl:uploadUrl params:params target:target type:type success:successBlock errorBlock:errorBlock];
+    
+    [CoreHttp uploadUrl:uploadUrl params:params files:files success:^(id obj) {
+        
+        [self success:obj url:uploadUrl params:params target:target type:type method:APPHttpMethodPOST successBlock:successBlock errorBlock:errorBlock];
+        
+    } errorBlock:^(CoreHttpErrorType errorType) {
+        
+        [self error:errorType errorMsg:nil method:APPHttpMethodPOST url:uploadUrl params:params target:target type:type success:successBlock errorBlock:errorBlock];
+        
+    }];
+
+}
+
+
 
 
 
@@ -139,7 +172,7 @@
 /**
  *  数据处理
  */
-+(void)success:(id)obj url:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type method:(APPHttpMethod)method successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
++(void)success:(id)obj url:(NSString *)urlString params:(id)params target:(id)target type:(APPHttpType)type method:(APPHttpMethod)method successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
     
     if(![obj isKindOfClass:[NSDictionary class]]){
         NSLog(@"数据异常，服务器返回的数据不是字典！");return;
@@ -149,7 +182,7 @@
     //1.取出状态码
     NSString *status=obj[@"status"];
     
-    if(![status isEqualToString:@"200"]){
+    if(!(status.integerValue == 200)){
         
         //服务器抛出错误
         //取出错误信息
@@ -165,7 +198,7 @@
         //1.取出状态码
         NSString *dataStatus=dataDict[@"res_status"];
         
-        if(![dataStatus isEqualToString:@"200"]){
+        if(!(dataStatus.integerValue == 200)){
             
             //服务器抛出错误
             //取出错误信息
@@ -176,7 +209,6 @@
             [self error:CoreHttpErrorTypeServiceRetrunErrorStatus errorMsg:errorMsg method:method url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
             return;
         }else{
-            
             
             //这里才是真正成功的地方
             //状态指示
