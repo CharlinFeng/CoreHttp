@@ -28,7 +28,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            [CoreIV showWithType:IVTypeLoad view:target msg:@"努力加载中" failClickBlock:^{
+            [CoreIV showWithType:IVTypeLoad view:target msg:nil failClickBlock:^{
                 
                 [self getUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
             }];
