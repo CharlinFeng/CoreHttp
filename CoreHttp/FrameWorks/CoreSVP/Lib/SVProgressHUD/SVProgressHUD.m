@@ -13,6 +13,8 @@
 #import "SVProgressHUD.h"
 #import "SVIndefiniteAnimatedView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CoreSVP.h"
+
 
 NSString * const SVProgressHUDDidReceiveTouchEventNotification = @"SVProgressHUDDidReceiveTouchEventNotification";
 NSString * const SVProgressHUDDidTouchDownInsideNotification = @"SVProgressHUDDidTouchDownInsideNotification";
@@ -941,6 +943,31 @@ static NSTimeInterval durationTime;
             effectGroup.motionEffects = @[effectX, effectY];
             [_hudView addMotionEffect:effectGroup];
         }
+        
+        /** 添加背景视图 */
+        UIView *bgView = nil;
+        if([UIDevice currentDevice].systemVersion.floatValue >= 8.0){
+        
+            UIBlurEffectStyle style = isNightMode ? UIBlurEffectStyleExtraLight : UIBlurEffectStyleDark;
+            UIBlurEffect *effect = [UIBlurEffect effectWithStyle:style];
+            UIVisualEffectView *v = [[UIVisualEffectView alloc] initWithEffect:effect];
+            bgView = v;
+        }else {
+        
+            UIToolbar *toolBar = [[UIToolbar alloc] init];
+            UIBarStyle style = isNightMode ? UIBarStyleDefault : UIBarStyleBlack;
+            toolBar.barStyle = style;
+            bgView = toolBar;
+        }
+        
+        [_hudView addSubview:bgView];
+        
+        bgView.translatesAutoresizingMaskIntoConstraints = NO;
+        NSDictionary *views = NSDictionaryOfVariableBindings(bgView);
+        NSArray *c_h = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[bgView]-0-|" options:0 metrics:nil views:views];
+        NSArray *c_v = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[bgView]-0-|" options:0 metrics:nil views:views];
+        [_hudView addConstraints:c_h];
+        [_hudView addConstraints:c_v];
     }
     
     if(!_hudView.superview)

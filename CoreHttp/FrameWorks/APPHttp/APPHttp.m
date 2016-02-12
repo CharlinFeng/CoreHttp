@@ -12,12 +12,6 @@
 
 
 
-
-
-
-
-
-
 @implementation APPHttp
 
 
@@ -68,9 +62,9 @@
         
         [self success:obj url:urlString params:params target:target type:type method:APPHttpMethodGET successBlock:successBlock errorBlock:errorBlock];
         
-    } errorBlock:^(CoreHttpErrorType errorType) {
+    } errorBlock:^(CoreHttpErrorType errorType, NSString *errorMsg) {
 
-        [self error:errorType errorMsg:nil method:APPHttpMethodGET url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
+        [self error:errorType errorMsg:errorMsg method:APPHttpMethodGET url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
         
     }];
 }
@@ -91,9 +85,9 @@
     
         [self success:obj url:urlString params:params target:target type:type method:APPHttpMethodPOST successBlock:successBlock errorBlock:errorBlock];
         
-    } errorBlock:^(CoreHttpErrorType errorType) {
+    } errorBlock:^(CoreHttpErrorType errorType, NSString *errorMsg) {
         
-        [self error:errorType errorMsg:nil method:APPHttpMethodPOST url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
+        [self error:errorType errorMsg:errorMsg method:APPHttpMethodPOST url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
     }];
 }
 
@@ -113,9 +107,9 @@
         
         [self success:obj url:uploadUrl params:params target:target type:type method:APPHttpMethodPOST successBlock:successBlock errorBlock:errorBlock];
         
-    } errorBlock:^(CoreHttpErrorType errorType) {
+    } errorBlock:^(CoreHttpErrorType errorType, NSString *errorMsg) {
         
-        [self error:errorType errorMsg:nil method:APPHttpMethodPOST url:uploadUrl params:params target:target type:type success:successBlock errorBlock:errorBlock];
+        [self error:errorType errorMsg:errorMsg method:APPHttpMethodPOST url:uploadUrl params:params target:target type:type success:successBlock errorBlock:errorBlock];
         
     }];
 
@@ -129,8 +123,6 @@
  *  错误处理
  */
 +(void)error:(CoreHttpErrorType)errorType errorMsg:(NSString *)errorMsg method:(APPHttpMethod)method url:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
-    
-    if(errorMsg == nil || errorMsg.length ==0) errorMsg = @"请求失败";
     
     if(APPHttpTypeStatusView == type){ // 视图指示器
         
@@ -158,13 +150,15 @@
         //设置状态
         btn.status = CoreSVPTypeError;
         
+        CoreSVPError(errorMsg)
+        
     }else if (APPHttpTypeSVP == type){
         
         [CoreSVP showSVPWithType:CoreSVPTypeError Msg:errorMsg duration:2.0f allowEdit:NO beginBlock:nil completeBlock:nil];
     }
   
     //执行回调
-    if(errorBlock != nil) errorBlock(errorType);
+    if(errorBlock != nil) errorBlock(errorType,errorMsg);
     
 }
 
@@ -232,9 +226,7 @@
             id appObj=dataDict[@"res_data"];
             
             successBlock(appObj);
-            
         }
-        
     }
 }
 

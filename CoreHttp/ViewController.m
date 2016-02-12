@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "APPHttp.h"
-
+#import "CoreSVP.h"
 
 @interface ViewController ()
 
@@ -22,11 +22,20 @@
     [super viewDidLoad];
     
     [self beginAction:nil];
+    
+    self.view.backgroundColor = [UIColor redColor];
 }
 
 
 - (IBAction)beginAction:(id)sender {
     
+    CoreSVPLoading(@"加载中", NO)
+    
+    [APPHttp postUrl:nil params:nil target:nil type:APPHttpTypeNone success:^(id obj) {
+        
+    } errorBlock:^(CoreHttpErrorType errorType, NSString *errorMsg) {
+        NSLog(@"%@",errorMsg);
+    }];
 }
 
 
