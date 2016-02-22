@@ -11,6 +11,7 @@
 #import "NSData+Param.h"
 #import <UIKit/UIKit.h>
 
+
 //定义APP的POST请求是否以标准的JSON格式通讯
 static const BOOL kURLConnectionMutualUseJson = NO;
 
@@ -25,7 +26,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
     if(!isNETWORKEnable){//无网络
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            if(errorBlock!=nil) errorBlock(CoreHttpErrorTypeNoNetWork);
+            if(errorBlock!=nil) errorBlock(CoreHttpErrorTypeNoNetWork,@"无网络连接");
         });
     }else{//有网络
         
@@ -201,7 +202,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
     if(connectionError!=nil){
 
         //这个error有值，说明一定有错，URL地址有错，要么服务器没有响应。总之连接就有错
-        errorBlock(CoreHttpErrorTypeURLConnectionError);NSLog(@"网络请求错误日志（code=1）：URL地址有错，要么服务器没有响应。总之连接就有错。\n 请求URL=%@",urlString);
+        errorBlock(CoreHttpErrorTypeURLConnectionError,@"连接服务器失败");NSLog(@"网络请求错误日志（code=1）：URL地址有错，要么服务器没有响应。总之连接就有错。\n 请求URL=%@",urlString);
         return;
     }else{
         //如果connectionError为nil，只能说url连接成功，但是url地址不一定正确，如服务器返回404状态码，表明页面找不到
@@ -210,7 +211,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
         if(statusCode!=200){
 
             //即页面请求正确，但是状态码不正确，即页面请求失败
-            errorBlock(CoreHttpErrorTypeStatusCodeError);NSLog(@"网络请求错误日志（code=2）：服务器响应状态码不正确,当前状态码为：%@。 \n 请求URL=%@",@(statusCode),urlString);
+            errorBlock(CoreHttpErrorTypeStatusCodeError,[NSString stringWithFormat:@"服务器状态码：%@",@(statusCode)]);NSLog(@"网络请求错误日志（code=2）：服务器响应状态码不正确,当前状态码为：%@。 \n 请求URL=%@",@(statusCode),urlString);
             return;
         }
     }
@@ -219,7 +220,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
     if(data == nil){
         
         //如果一切返回正常，但是服务器返回空数据，一样视为失败的一次请求，什么数据都没有请求到。
-        errorBlock(CoreHttpErrorTypeDataNilError);NSLog(@"网络请求错误日志（code=3.1）：服务器返回空数据，一样视为失败的一次请求，什么数据都没有请求到。\n 请求URL=%@",urlString);
+        errorBlock(CoreHttpErrorTypeDataNilError,@"服务器空数据");NSLog(@"网络请求错误日志（code=3.1）：服务器返回空数据，一样视为失败的一次请求，什么数据都没有请求到。\n 请求URL=%@",urlString);
         return;
     }
     
@@ -230,7 +231,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
     //有的JSON数据格式不是很规范，格式里面包含了回车，换行以及TAB等制表符，我们应该先清除一下这些制表符再进行反序列化。
     
     NSString * dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"json: ---- %@",dataString);
+
     dataString = [dataString deleteSpecialCode];
     NSData *correctStringData=[dataString dataUsingEncoding:NSUTF8StringEncoding];
   
@@ -239,7 +240,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
     if(dataString==nil || correctStringData==nil){
 
         //同样是DataNilError：前面是返回的处理前的Data=nil，这里是处理后的correctStringData=nil
-        errorBlock(CoreHttpErrorTypeDataNilError);NSLog(@"网络请求错误日志（code=3.2）：服务器返回的Data处理后为nil，相当于还是得到了无效的空数据。\n 请求URL=%@",urlString);
+        errorBlock(CoreHttpErrorTypeDataNilError, @"服务器无效数据");NSLog(@"网络请求错误日志（code=3.2）：服务器返回的Data处理后为nil，相当于还是得到了无效的空数据。\n 请求URL=%@",urlString);
         return;
     }
     
@@ -249,22 +250,20 @@ static const BOOL kURLConnectionMutualUseJson = NO;
     //判断解析是否出错
     if(error != nil){
         
-        errorBlock(CoreHttpErrorTypeDataSerializationError);NSLog(@"网络请求错误日志（code=6）：JSON数据解析时出错。\n 请求URL=%@",urlString);
+        errorBlock(CoreHttpErrorTypeDataSerializationError, @"JSON解析出错");NSLog(@"网络请求错误日志（code=6）：JSON数据解析时出错。\n 请求URL=%@",urlString);
         return;
     }
 
     if(obj==nil){
 
         //解析之后数据为nil：
-        errorBlock(CoreHttpErrorTypeDataSerializationError);NSLog(@"网络请求错误日志（code=4）：解析之后数据为nil。\n 请求URL=%@",urlString);
+        errorBlock(CoreHttpErrorTypeDataSerializationError, @"JSON空数据");NSLog(@"网络请求错误日志（code=4）：解析之后数据为nil。\n 请求URL=%@",urlString);
         return;
     }
     
     //处理成功
     if(successBlock != nil) successBlock(obj);
 }
-
-
 
 
 
@@ -315,7 +314,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
         if(data.length==0){
             
             //解析之后数据为nil：
-            errorBlock(CoreHttpErrorTypeUploadDataNil);NSLog(@"网络请求错误日志（code=6）：POST数据全部为空，没有普通参数，没有文件。\n 请求URL=%@",urlStr);
+            errorBlock(CoreHttpErrorTypeUploadDataNil, @"上传文件为空");NSLog(@"网络请求错误日志（code=6）：POST数据全部为空，没有普通参数，没有文件。\n 请求URL=%@",urlStr);
             return;
         }
         

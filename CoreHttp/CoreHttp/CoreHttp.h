@@ -46,7 +46,7 @@ typedef enum{
 
 typedef void(^SuccessBlock)(id obj);
 
-typedef void(^ErrorBlock)(CoreHttpErrorType errorType);
+typedef void(^ErrorBlock)(CoreHttpErrorType errorType, NSString *errorMsg);
 
 
 
