@@ -26,7 +26,11 @@
 
 
 - (IBAction)beginAction:(id)sender {
-    
+    [APPHttp postUrl:@"http://www.baidu.com/" params:nil target:nil type:APPHttpTypeStatusView success:^(id obj) {
+        NSLog(@"请求成功");
+    } errorBlock:^(CoreHttpErrorType errorType) {
+        NSLog(@"请求失败");
+    }];
 }
 
 

@@ -269,7 +269,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
 
 
 #pragma mark  文件上传
-+(void)uploadUrl:(NSString *)uploadUrl params:(id)params files:(NSArray *)files beginBlock:(void(^)())beginBlock progressBlock:(void(^)(CGFloat p))progressBlock success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
++(void)uploadUrl:(NSString *)uploadUrl params:(id)params files:(NSArray *)files success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
     
     __block NSString *urlStr=uploadUrl;
     
