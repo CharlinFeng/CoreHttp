@@ -194,6 +194,11 @@
         
         if(!(dataStatus.integerValue == 200)){
             
+            if(dataStatus.integerValue == 900){
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:CoreHttpTokenDeprecatedNoti object:nil userInfo:nil];
+            }
+            
             //服务器抛出错误
             //取出错误信息
             NSString *errorMsg=@"服务器抛出错误";
@@ -202,6 +207,7 @@
             
             [self error:CoreHttpErrorTypeServiceRetrunErrorStatus errorMsg:errorMsg method:method url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
             return;
+            
         }else{
             
             //这里才是真正成功的地方

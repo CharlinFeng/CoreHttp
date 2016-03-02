@@ -12,6 +12,7 @@
 #import "CoreStatusBtn.h"
 #import "APPHttpType.h"
 
+#define CoreHttpTokenDeprecatedNoti @"CoreHttpTokenDeprecatedNoti"
 
 @interface APPHttp : NSObject
 
