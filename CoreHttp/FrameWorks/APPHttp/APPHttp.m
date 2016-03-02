@@ -178,6 +178,15 @@
     
     if(!(status.integerValue == 200)){
         
+        if(status.integerValue == 900){
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:CoreHttpTokenDeprecatedNoti object:nil userInfo:nil];
+            });
+            
+            NSLog(@"错误：Token过期");
+        }
+        
         //服务器抛出错误
         //取出错误信息
         NSString *errorMsg=@"服务器抛出错误";
@@ -194,14 +203,7 @@
         
         if(!(dataStatus.integerValue == 200)){
             
-            if(dataStatus.integerValue == 900){
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [[NSNotificationCenter defaultCenter] postNotificationName:CoreHttpTokenDeprecatedNoti object:nil userInfo:nil];
-                });
-                
-                NSLog(@"错误：Token过期");
-            }
+
             
             //服务器抛出错误
             //取出错误信息
