@@ -178,20 +178,23 @@
     
     if(!(status.integerValue == 200)){
         
-        if(status.integerValue == 900){
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:CoreHttpTokenDeprecatedNoti object:nil userInfo:nil];
-            });
-            
-            NSLog(@"错误：Token过期");
-        }
-        
         //服务器抛出错误
         //取出错误信息
         NSString *errorMsg=@"服务器抛出错误";
         id msgObj=obj[@"msg"];
         if([msgObj isKindOfClass:[NSString class]]) errorMsg=msgObj;
+        
+        if(status.integerValue == 900){
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:AppHttpTokenDeprecatedNoti object:nil userInfo:nil];
+            });
+            
+            NSLog(@"错误：Token过期");
+            
+            errorMsg = @"请重新登陆";
+        }
+        
         [self error:CoreHttpErrorTypeServiceRetrunErrorStatus errorMsg:errorMsg method:method url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
         return;
     }else{
