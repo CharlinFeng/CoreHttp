@@ -196,7 +196,11 @@
             
             if(dataStatus.integerValue == 900){
                 
-                [[NSNotificationCenter defaultCenter] postNotificationName:CoreHttpTokenDeprecatedNoti object:nil userInfo:nil];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:CoreHttpTokenDeprecatedNoti object:nil userInfo:nil];
+                });
+                
+                NSLog(@"错误：Token过期");
             }
             
             //服务器抛出错误
