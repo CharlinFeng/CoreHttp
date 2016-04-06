@@ -72,7 +72,7 @@ typedef void(^ErrorBlock)(CoreHttpErrorType errorType, NSString *errorMsg);
  *  @params: 普通参数
  *  @files : 文件数据，里面装的都是UploadFile对象
  */
-+(void)uploadUrl:(NSString *)uploadUrl params:(id)params files:(NSArray *)files success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
++(void)uploadUrl:(NSString *)uploadUrl params:(id)params files:(NSArray *)files success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock delegate:(id<NSURLSessionDelegate>)delegate;
 
 
 

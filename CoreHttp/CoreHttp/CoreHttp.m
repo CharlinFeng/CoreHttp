@@ -273,7 +273,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
 
 
 #pragma mark  文件上传
-+(void)uploadUrl:(NSString *)uploadUrl params:(id)params files:(NSArray *)files success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
++(void)uploadUrl:(NSString *)uploadUrl params:(id)params files:(NSArray *)files success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock delegate:(id<NSURLSessionDelegate>)delegate{
     
     __block NSString *urlStr=uploadUrl;
     
@@ -340,11 +340,21 @@ static const BOOL kURLConnectionMutualUseJson = NO;
         // 请求体的客户端信息
         [request setValue: @"iPhone" forHTTPHeaderField: @"User-Agent"];
         
-        [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-            
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:delegate delegateQueue:nil];
+        
+        //task
+        NSURLSessionTask *task = [session uploadTaskWithRequest:request fromData:data completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             //请求结束，统一处理
-            [CoreHttp disposeUrlString:urlStr response:response data:data error:connectionError success:successBlock error:errorBlock];
+            [CoreHttp disposeUrlString:urlStr response:response data:data error:error success:successBlock error:errorBlock];
         }];
+        
+        [task resume];
+        
+//        [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//            
+//            //请求结束，统一处理
+//            [CoreHttp disposeUrlString:urlStr response:response data:data error:connectionError success:successBlock error:errorBlock];
+//        }];
     });
 }
 

@@ -11,11 +11,15 @@
 #import "CoreSVP.h"
 
 
-@interface APPHttp ()
+@interface APPHttp ()<NSURLSessionTaskDelegate>
 
 @property (nonatomic,strong) NSMutableDictionary *taskDict;
 
 @property (nonatomic,assign) BOOL isCancel;
+
+@property (nonatomic,copy) void (^ProgressBlock)(CGFloat p);
+
+@property (nonatomic,assign) APPHttpType type;
 
 @end
 
@@ -72,7 +76,7 @@ HMSingletonM(APPHttp)
         
     }else if (APPHttpTypeSVP == type){ //SVP
         
-        CoreSVPLoading(@"正在加载", urlString)
+//        CoreSVPLoading(@"正在加载", urlString)
     }
 
     
@@ -154,20 +158,32 @@ HMSingletonM(APPHttp)
  *   APPHttpTypeSVP         ：nil
  *   APPHttpTypeBtn         ：btn
  */
-+(void)uploadUrl:(NSString *)uploadUrl params:(id)params files:(NSArray *)files target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
++(void)uploadUrl:(NSString *)uploadUrl params:(id)params files:(NSArray *)files target:(id)target type:(APPHttpType)type progressBlock:(void(^)(CGFloat p))progressBlock success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
+    
+    //实例
+    APPHttp *ap = [APPHttp sharedAPPHttp];
+    
+    //记录
+    ap.ProgressBlock = progressBlock;
+    ap.type = type;
 
     //请求开始指示器
     [self requestBeginWithUrl:uploadUrl params:params target:target type:type success:successBlock errorBlock:errorBlock];
     
     [CoreHttp uploadUrl:uploadUrl params:params files:files success:^(id obj) {
         
+        //清空
+        ap.ProgressBlock = nil;
+        
         [self success:obj url:uploadUrl params:params target:target type:type method:APPHttpMethodPOST successBlock:successBlock errorBlock:errorBlock];
         
     } errorBlock:^(CoreHttpErrorType errorType, NSString *errorMsg) {
         
+        //清空
+        ap.ProgressBlock = nil;
         [self error:errorType errorMsg:errorMsg method:APPHttpMethodPOST url:uploadUrl params:params target:target type:type success:successBlock errorBlock:errorBlock];
         
-    }];
+    } delegate:ap];
 
 }
 
@@ -215,7 +231,9 @@ HMSingletonM(APPHttp)
         
     }else if (APPHttpTypeSVP == type){
         
-        [CoreSVP showSVPWithType:CoreSVPTypeError Msg:errorMsg duration:2.0f allowEdit:NO beginBlock:nil completeBlock:nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [CoreSVP showSVPWithType:CoreSVPTypeError Msg:errorMsg duration:2.0f allowEdit:NO beginBlock:nil completeBlock:nil];
+        });
     }
 }
 
@@ -340,5 +358,21 @@ HMSingletonM(APPHttp)
 
     return _taskDict;
 }
+
+
+
+-(void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend{
+    
+    CGFloat p = totalBytesSent/(CGFloat)totalBytesExpectedToSend;
+    
+    if(self.ProgressBlock != nil) self.ProgressBlock(p);
+    
+    if (self.type == APPHttpTypeSVP){
+        
+        [CoreSVP showProgess:p Msg:@"上传中" maskType:SVProgressHUDMaskTypeClear];
+    }
+}
+
+
 
 @end

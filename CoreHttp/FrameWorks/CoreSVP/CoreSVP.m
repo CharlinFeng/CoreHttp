@@ -128,11 +128,11 @@ static CoreSVPType SVPtype = CoreSVPTypeNone;
         
         [SVProgressHUD showProgress:progress status:msg maskType:maskType];
         
-        if(progress>=1) {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self dismiss];
-            });
-        }
+//        if(progress>=1) {
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                [self dismiss];
+//            });
+//        }
     });
 }
 
