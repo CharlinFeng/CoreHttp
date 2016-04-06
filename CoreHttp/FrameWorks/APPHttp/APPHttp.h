@@ -11,10 +11,16 @@
 #import "CoreHttp.h"
 #import "CoreStatusBtn.h"
 #import "APPHttpType.h"
+#import "APPHttpSingleton.h"
+
 
 #define AppHttpTokenDeprecatedNoti @"AppHttpTokenDeprecatedNoti"
 
+
+
 @interface APPHttp : NSObject
+HMSingletonH(APPHttp)
+
 
 
 
@@ -48,5 +54,8 @@
  */
 +(void)uploadUrl:(NSString *)uploadUrl params:(id)params files:(NSArray *)files target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
+
+/** 取出task */
++( NSURLSessionDataTask *)taskWithUrl:(NSString *)url;
 
 @end

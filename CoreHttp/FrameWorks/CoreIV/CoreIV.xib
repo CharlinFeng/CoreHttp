@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A4310" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,7 +13,6 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jA-mS-h7G">
                     <rect key="frame" x="250" y="250" width="100" height="100"/>
-                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="Rds-xD-Vxj"/>
@@ -21,18 +20,16 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9UG-rh-FRw">
-                    <rect key="frame" x="0.0" y="362" width="600" height="0.0"/>
-                    <animations/>
+                    <rect key="frame" x="0.0" y="356" width="600" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="4jA-mS-h7G" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ANK-TL-BjM"/>
-                <constraint firstItem="9UG-rh-FRw" firstAttribute="top" secondItem="4jA-mS-h7G" secondAttribute="bottom" constant="12" id="GIY-Og-3I3"/>
+                <constraint firstItem="9UG-rh-FRw" firstAttribute="top" secondItem="4jA-mS-h7G" secondAttribute="bottom" constant="6" id="GIY-Og-3I3"/>
                 <constraint firstItem="9UG-rh-FRw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="avK-9J-fif"/>
                 <constraint firstAttribute="trailing" secondItem="9UG-rh-FRw" secondAttribute="trailing" id="o0i-fq-xG1"/>
                 <constraint firstItem="4jA-mS-h7G" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qYy-Un-cd5"/>

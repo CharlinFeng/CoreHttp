@@ -37,7 +37,7 @@
 
 @property (nonatomic,assign) IVType type;
 
-@property (nonatomic,weak) DGActivityIndicatorView *di;
+@property (nonatomic,weak) UIView *di;
 
 @property (nonatomic,copy) void (^FailBlock)();
 
@@ -107,14 +107,16 @@
     UIColor *tintColor = [UIColor grayColor];
     CGFloat size = 50;
     
-    DGActivityIndicatorView *di = nil;
+    UIView *di = nil;
     if(type == IVTypeLoad) {
         
-        di = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallTrianglePath tintColor:tintColor size:size];
+        DGActivityIndicatorView *di_temp = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallBeat tintColor:tintColor size:size];
+
+        di = di_temp;
         
     }else {
         
-        di = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeCookieTerminator tintColor:tintColor size:size];
+        di = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CoreIV.bundle/smile_failed"]];
     }
     
     //记录
@@ -122,17 +124,28 @@
     
     [self.contentView addSubview:di];
     
-    di.bounds = CGRectMake(0, 0, 100, 100);
+    di.bounds = CGRectMake(0, 0, size * 2, size * 2);
+    
     [di autoLayoutFillSuperView];
     
     
-    //执行动画
-    [di startAnimating];
+    if(self.type == IVTypeLoad){
+        
+        DGActivityIndicatorView *di_temp_2 = (DGActivityIndicatorView *)self.di;
+        
+        [di_temp_2 startAnimating];
+    }
 }
 
 -(void)dismiss {
     
-    [self.di stopAnimating];
+    if(self.type == IVTypeLoad){
+    
+        DGActivityIndicatorView *di_temp = (DGActivityIndicatorView *)self.di;
+        
+        [di_temp stopAnimating];
+    }
+    
     [self.di removeFromSuperview];
     [self removeFromSuperview];
 }

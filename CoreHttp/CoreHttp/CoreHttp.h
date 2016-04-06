@@ -57,13 +57,13 @@ typedef void(^ErrorBlock)(CoreHttpErrorType errorType, NSString *errorMsg);
  *  GET:
  *  params中可指明参数类型
  */
-+(void)getUrl:(NSString *)urlString params:(id)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
++(NSURLSessionDataTask *)getUrl:(NSString *)urlString params:(id)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
 
 /**
  *  POST:
  */
-+(void)postUrl:(NSString *)urlString params:(id)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
++(NSURLSessionDataTask *)postUrl:(NSString *)urlString params:(id)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
 
 

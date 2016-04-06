@@ -25,6 +25,8 @@ typedef NS_ENUM(NSUInteger, SVProgressHUDMaskType) {
     SVProgressHUDMaskTypeGradient   // don't allow user interactions and dim the UI with a a-la-alert-view background gradient
 };
 
+#define SVProgressHUDURLNoti @"SVProgressHUDURLNoti"
+
 @interface SVProgressHUD : UIView
 
 #pragma mark - Customization
@@ -73,6 +75,9 @@ typedef NS_ENUM(NSUInteger, SVProgressHUDMaskType) {
 
 + (void)popActivity; // decrease activity count, if activity count == 0 the HUD is dismissed
 + (void)dismiss;
++ (void)isProgressRes:(BOOL)res;
+
++ (void)setURL:(NSString *)url;
 
 + (BOOL)isVisible;
 
@@ -82,9 +87,6 @@ typedef NS_ENUM(NSUInteger, SVProgressHUDMaskType) {
 
 /** 对HUB进行扩展 */
 +(void)setDuration:(NSTimeInterval)duration;
-
-/** 完成时回调 */
-+(void)setCompleteBlock:(void(^)())completeBlock;
 
 @end
 

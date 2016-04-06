@@ -25,7 +25,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
     
     if(!isNETWORKEnable){//无网络
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             if(errorBlock!=nil) errorBlock(CoreHttpErrorTypeNoNetWork,@"无网络连接");
         });
     }else{//有网络
@@ -41,150 +41,155 @@ static const BOOL kURLConnectionMutualUseJson = NO;
 
 
 #pragma mark  GET
-+(void)getUrl:(NSString *)urlString params:(id)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
++(NSURLSessionDataTask *)getUrl:(NSString *)urlString params:(id)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
     
-    __block NSString *urlStr=urlString;
-    
-    
-    //GET请求放入子线程中处理
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        //请求前网络检查
-        if(![self requestBeforeCheckNetWorkWithErrorBlock:errorBlock]) return;
-        
-        if(params !=nil){
-            
-            //含有参数
-            NSMutableString *paraTempString=[NSMutableString string];
-            
-            //拼接数据
-            [params enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-                [paraTempString appendFormat:@"%@=%@&",key,obj];
-            }];
-            
-            //去除最后一个字符
-            NSString *paramsStr=[paraTempString substringToIndex:paraTempString.length-1];
-            
-            //取出key
-            NSRange range=[urlStr rangeOfString:@"?"];
-            
-            BOOL paramsAlreadyAppend=range.length>0;
-            
-            NSString *symbol=paramsAlreadyAppend?@"&":@"?";
-            
-            urlStr=[NSString stringWithFormat:@"%@%@%@",urlStr,symbol,paramsStr];
-        }
-        
-        //urlStr格式化
-        urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlStr=urlString;
 
-        //定义URL
-        NSURL *url=[NSURL URLWithString:urlStr];
+    //请求前网络检查
+    if(![self requestBeforeCheckNetWorkWithErrorBlock:errorBlock]) return nil;
+    
+    if(params !=nil){
         
-        //定义请求:设置缓存策略，超时时长
-        NSURLRequest *request=[NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0f];
+        //含有参数
+        NSMutableString *paraTempString=[NSMutableString string];
         
-        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-        
-        //异步请求
-        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-            
-            
-            //请求结束，统一处理
-            [self disposeUrlString:(NSString *)urlStr response:response data:data error:connectionError success:successBlock error:errorBlock];
+        //拼接数据
+        [params enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            [paraTempString appendFormat:@"%@=%@&",key,obj];
         }];
+        
+        //去除最后一个字符
+        NSString *paramsStr=[paraTempString substringToIndex:paraTempString.length-1];
+        
+        //取出key
+        NSRange range=[urlStr rangeOfString:@"?"];
+        
+        BOOL paramsAlreadyAppend=range.length>0;
+        
+        NSString *symbol=paramsAlreadyAppend?@"&":@"?";
+        
+        urlStr=[NSString stringWithFormat:@"%@%@%@",urlStr,symbol,paramsStr];
+    }
+    
+    //urlStr格式化
+    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
-    });
+    //定义URL
+    NSURL *url=[NSURL URLWithString:urlStr];
+    
+    //定义请求:设置缓存策略，超时时长
+    NSURLRequest *request=[NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0f];
+    
+    //异步请求
+    //创建session
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    //创建一个dataTask
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+
+        //请求结束，统一处理
+        [self disposeUrlString:(NSString *)urlStr response:response data:data error:error success:successBlock error:errorBlock];
+    }];
+    
+    //启动任务
+    [dataTask resume];
+    
+    return dataTask;
+
 }
 
 
 
 #pragma mark  POST:
-+(void)postUrl:(NSString *)urlString params:(id)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
++(NSURLSessionDataTask *)postUrl:(NSString *)urlString params:(id)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
     
-    __block NSString *urlStr=urlString;
+    NSString *urlStr=urlString;
     
-    //POST请求放入子线程中处理
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        //请求前网络检查
-        if(![self requestBeforeCheckNetWorkWithErrorBlock:errorBlock]) return;
+    //请求前网络检查
+    if(![self requestBeforeCheckNetWorkWithErrorBlock:errorBlock]) return nil;
+    
+    //urlStr格式化
+    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    //定义URL
+    NSURL *url=[NSURL URLWithString:urlStr];
+    
+    //定义请求:设置缓存策略，超时时长
+    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0f];
+    
+    //指定请求方式
+    request.HTTPMethod=@"POST";
+    
+    NSData *data=nil;;
+    
+    //如果是标准的JSON交互，需要指明头信息：
+    if(kURLConnectionMutualUseJson){
+        //JSON交互
+        //设置请求头：JSON格式的请求头信息
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         
-        //urlStr格式化
-        urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        //将字典转为json数据格式的字符串：
+        NSError *dict2JsonError=nil;
+        data=[NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&dict2JsonError];
+        NSString *errorMsg = [NSString stringWithFormat:@"网络请求错误日志（code=0）：POST传递json数据时出现错误，数据体为：%@\n 请求URL=%@",params,urlString];
+        NSAssert(dict2JsonError == nil, errorMsg);
         
-        //定义URL
-        NSURL *url=[NSURL URLWithString:urlStr];
         
-        //定义请求:设置缓存策略，超时时长
-        NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0f];
+    }else{
         
-        //指定请求方式
-        request.HTTPMethod=@"POST";
-        
-        NSData *data=nil;;
-        
-        //如果是标准的JSON交互，需要指明头信息：
-        if(kURLConnectionMutualUseJson){
-            //JSON交互
-            //设置请求头：JSON格式的请求头信息
-            [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        if(params!=nil){
             
-            //将字典转为json数据格式的字符串：
-            NSError *dict2JsonError=nil;
-            data=[NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&dict2JsonError];
-            NSString *errorMsg = [NSString stringWithFormat:@"网络请求错误日志（code=0）：POST传递json数据时出现错误，数据体为：%@\n 请求URL=%@",params,urlString];
-            NSAssert(dict2JsonError == nil, errorMsg);
+            //非JSON，直接请求
+            NSMutableString *paraTempString=[NSMutableString string];
             
-            
-        }else{
-            
-            if(params!=nil){
+            //拼接数据
+            [params enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
                 
-                //非JSON，直接请求
-                NSMutableString *paraTempString=[NSMutableString string];
-                
-                //拼接数据
-                [params enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
+                if (![obj isKindOfClass:[NSArray class]]) {
                     
-                    if (![obj isKindOfClass:[NSArray class]]) {
-                        
-                        [paraTempString appendFormat:@"%@=%@&",key,obj];
-                        
-                    }else{
-                        
-                        //将字典转为json数据格式的字符串：
-                        NSError *dict2JsonError=nil;
+                    [paraTempString appendFormat:@"%@=%@&",key,obj];
+                    
+                }else{
+                    
+                    //将字典转为json数据格式的字符串：
+                    NSError *dict2JsonError=nil;
 
-                        NSData *arr_json_data = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:&dict2JsonError];
-                        
-                        NSString *errorMsg = [NSString stringWithFormat:@"网络请求错误日志（code=0）：POST传递json数据时出现错误，数据体为：%@\n 请求URL=%@",params,urlString];
-                        NSAssert(dict2JsonError == nil, errorMsg);
-     
-                        NSString *arr_json_string = [[NSString alloc] initWithData:arr_json_data encoding:NSUTF8StringEncoding];
-                        [paraTempString appendFormat:@"%@=%@&",key,arr_json_string];
-                    }
-                }];
-                
-                //去除最后一个字符
-                NSString *paramsStr=[[paraTempString substringToIndex:paraTempString.length-1] deleteSpecialCode];
-                
-                data=[paramsStr dataUsingEncoding:NSUTF8StringEncoding];
-            }
+                    NSData *arr_json_data = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:&dict2JsonError];
+                    
+                    NSString *errorMsg = [NSString stringWithFormat:@"网络请求错误日志（code=0）：POST传递json数据时出现错误，数据体为：%@\n 请求URL=%@",params,urlString];
+                    NSAssert(dict2JsonError == nil, errorMsg);
+ 
+                    NSString *arr_json_string = [[NSString alloc] initWithData:arr_json_data encoding:NSUTF8StringEncoding];
+                    [paraTempString appendFormat:@"%@=%@&",key,arr_json_string];
+                }
+            }];
+            
+            //去除最后一个字符
+            NSString *paramsStr=[[paraTempString substringToIndex:paraTempString.length-1] deleteSpecialCode];
+            
+            data=[paramsStr dataUsingEncoding:NSUTF8StringEncoding];
         }
-        
-        //设置数据体
-        request.HTTPBody=data;
-        
-        //POST请求
-        [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-            
-            //请求结束，统一处理
-            [self disposeUrlString:urlStr response:response data:data error:connectionError success:successBlock error:errorBlock];
-            
-        }];
-
-    });
+    }
     
+    //设置数据体
+    request.HTTPBody=data;
+    
+    //异步请求
+    //创建session
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    //创建一个dataTask
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        //请求结束，统一处理
+        [self disposeUrlString:(NSString *)urlStr response:response data:data error:error success:successBlock error:errorBlock];
+    }];
+    
+    //启动任务
+    [dataTask resume];
+    
+    return dataTask;
+
 }
 
 

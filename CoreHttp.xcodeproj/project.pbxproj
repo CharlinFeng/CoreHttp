@@ -160,6 +160,7 @@
 		8901BF511C115A46004F7E81 /* DGActivityIndicatorAnimationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorAnimationProtocol.h; sourceTree = "<group>"; };
 		8901BF521C115A46004F7E81 /* DGActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorView.h; sourceTree = "<group>"; };
 		8901BF531C115A46004F7E81 /* DGActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGActivityIndicatorView.m; sourceTree = "<group>"; };
+		891DAA3F1CB4D6D10090023B /* APPHttpSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPHttpSingleton.h; sourceTree = "<group>"; };
 		8939E73F1C6DDD1700EA8766 /* APPHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPHttp.h; sourceTree = "<group>"; };
 		8939E7401C6DDD1700EA8766 /* APPHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPHttp.m; sourceTree = "<group>"; };
 		8939E7421C6DDD1700EA8766 /* APPHttpType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPHttpType.h; sourceTree = "<group>"; };
@@ -339,6 +340,14 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
+		891DAA3E1CB4D6D10090023B /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				891DAA3F1CB4D6D10090023B /* APPHttpSingleton.h */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
 		8939E73E1C6DDD1700EA8766 /* APPHttp */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +361,7 @@
 		8939E7411C6DDD1700EA8766 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				891DAA3E1CB4D6D10090023B /* Singleton */,
 				8939E7421C6DDD1700EA8766 /* APPHttpType.h */,
 			);
 			path = Lib;

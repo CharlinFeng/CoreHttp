@@ -11,13 +11,50 @@
 #import "CoreSVP.h"
 
 
+@interface APPHttp ()
+
+@property (nonatomic,strong) NSMutableDictionary *taskDict;
+
+@property (nonatomic,assign) BOOL isCancel;
+
+@end
+
 
 @implementation APPHttp
+HMSingletonM(APPHttp)
+
++(void)initialize {
+    
+    APPHttp *ah = [APPHttp sharedAPPHttp];
+
+    [[NSNotificationCenter defaultCenter] addObserver:ah selector:@selector(svpNoti:) name:SVProgressHUDURLNoti object:nil];
+    [self sharedAPPHttp];
+}
+
+
+-(void)svpNoti:(NSNotification *)noti{
+    
+    NSString *url = noti.userInfo[SVProgressHUDURLNoti];
+    
+    if (url == nil){return;}
+    
+    //取出task
+    NSURLSessionDataTask *task = self.taskDict[url];
+    
+    self.isCancel = YES;
+    
+    [task cancel];
+}
+
 
 
 /** 请求开始，展示指示器 */
 +(void)requestBeginWithUrl:(NSString *)urlString params:(id)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
 
+    //重置
+    APPHttp *ah = [self sharedAPPHttp];
+    ah.isCancel = NO;
+    
     if(APPHttpTypeStatusView == type){ //显示指示视图
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -35,7 +72,7 @@
         
     }else if (APPHttpTypeSVP == type){ //SVP
         
-        [CoreSVP showSVPWithType:CoreSVPTypeLoadingInterface Msg:@"加载中" duration:0 allowEdit:NO beginBlock:nil completeBlock:nil];
+        CoreSVPLoading(@"正在加载", urlString)
     }
 
     
@@ -58,15 +95,24 @@
     //请求开始指示器
     [self requestBeginWithUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
     
-    [CoreHttp getUrl:urlString params:params success:^(id obj) {
+    NSURLSessionDataTask *dataTask = [CoreHttp getUrl:urlString params:params success:^(id obj) {
         
         [self success:obj url:urlString params:params target:target type:type method:APPHttpMethodGET successBlock:successBlock errorBlock:errorBlock];
+        
+        //移除task
+        [[APPHttp sharedAPPHttp].taskDict removeObjectForKey:urlString];
         
     } errorBlock:^(CoreHttpErrorType errorType, NSString *errorMsg) {
 
         [self error:errorType errorMsg:errorMsg method:APPHttpMethodGET url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
         
+        //移除task
+        [[APPHttp sharedAPPHttp].taskDict removeObjectForKey:urlString];
+        
     }];
+    
+    //记录
+    [APPHttp sharedAPPHttp].taskDict[urlString] = dataTask;
 }
 
 
@@ -81,14 +127,24 @@
     //请求开始指示器
     [self requestBeginWithUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
     
-    [CoreHttp postUrl:urlString params:params success:^(id obj) {
+    NSURLSessionDataTask *dataTask = [CoreHttp postUrl:urlString params:params success:^(id obj) {
     
         [self success:obj url:urlString params:params target:target type:type method:APPHttpMethodPOST successBlock:successBlock errorBlock:errorBlock];
+        
+        //移除task
+        [[APPHttp sharedAPPHttp].taskDict removeObjectForKey:urlString];
         
     } errorBlock:^(CoreHttpErrorType errorType, NSString *errorMsg) {
         
         [self error:errorType errorMsg:errorMsg method:APPHttpMethodPOST url:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
+        
+        //移除task
+        [[APPHttp sharedAPPHttp].taskDict removeObjectForKey:urlString];
+        
     }];
+    
+    //记录
+    [APPHttp sharedAPPHttp].taskDict[urlString] = dataTask;
 }
 
 
@@ -124,6 +180,13 @@
  */
 +(void)error:(CoreHttpErrorType)errorType errorMsg:(NSString *)errorMsg method:(APPHttpMethod)method url:(NSString *)urlString params:(NSDictionary *)params target:(id)target type:(APPHttpType)type success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock{
     
+    //执行回调
+    if(errorBlock != nil) errorBlock(errorType,errorMsg);
+    
+    APPHttp *ah = [APPHttp sharedAPPHttp];
+    
+    if (ah.isCancel) {ah.isCancel = NO;return;}
+    
     if(APPHttpTypeStatusView == type){ // 视图指示器
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -139,9 +202,7 @@
                 [CoreIV showWithType:IVTypeError view:target msg:errorMsg failClickBlock:^{
                     [self postUrl:urlString params:params target:target type:type success:successBlock errorBlock:errorBlock];
                 }];
-                
             }
-
         });
     }else if (APPHttpTypeBtn == type){ //状态按钮
         
@@ -150,16 +211,12 @@
         //设置状态
         btn.status = CoreSVPTypeError;
         
-        CoreSVPError(errorMsg)
+        CoreSVPError(errorMsg, nil)
         
     }else if (APPHttpTypeSVP == type){
         
         [CoreSVP showSVPWithType:CoreSVPTypeError Msg:errorMsg duration:2.0f allowEdit:NO beginBlock:nil completeBlock:nil];
     }
-  
-    //执行回调
-    if(errorBlock != nil) errorBlock(errorType,errorMsg);
-    
 }
 
 
@@ -243,6 +300,45 @@
             successBlock(appObj);
         }
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** 取出task */
++(NSURLSessionDataTask *)taskWithUrl:(NSString *)url{
+
+    return [APPHttp sharedAPPHttp].taskDict[url];
+}
+
+
+
+
+
+
+
+
+/** lazy */
+-(NSMutableDictionary *)taskDict{
+
+    if(_taskDict == nil){
+    
+        _taskDict = [NSMutableDictionary dictionary];
+    }
+
+    return _taskDict;
 }
 
 @end
