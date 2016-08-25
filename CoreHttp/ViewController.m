@@ -47,7 +47,7 @@
     
     NSString *url = @"http://112.74.125.78/yeah/index.php/Home/User/delete_attach";
     
-    [APPHttp uploadUrl:url params:params files:arr target:nil type:APPHttpTypeSVP progressBlock:^(CGFloat p) {
+    [APPHttp uploadUrl:url params:params files:arr target:self.view type:APPHttpTypeStatusView progressBlock:^(CGFloat p) {
         NSLog(@"上传中%f",p);
     } success:^(id obj) {
         NSLog(@"成功");

@@ -21,7 +21,7 @@ static const BOOL kURLConnectionMutualUseJson = NO;
 #pragma mark  请求前统一处理：如果是没有网络，则不论是GET请求还是POST请求，均无需继续处理
 +(BOOL)requestBeforeCheckNetWorkWithErrorBlock:(ErrorBlock)errorBlock{
     
-    BOOL isNETWORKEnable=[CoreStatus isNETWORKEnable];
+    BOOL isNETWORKEnable=[CoreStatus isNetworkEnable];
     
     if(!isNETWORKEnable){//无网络
         

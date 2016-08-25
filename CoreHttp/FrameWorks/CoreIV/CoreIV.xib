@@ -38,7 +38,7 @@
                 <outlet property="contentView" destination="4jA-mS-h7G" id="cCw-S8-7jg"/>
                 <outlet property="msgLabel" destination="9UG-rh-FRw" id="0EM-NF-Rsl"/>
             </connections>
-            <point key="canvasLocation" x="833" y="556"/>
+            <point key="canvasLocation" x="624" y="551"/>
         </view>
     </objects>
 </document>

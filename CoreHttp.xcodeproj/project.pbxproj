@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		890022A31C3619B800487EB9 /* 1.zip in Resources */ = {isa = PBXBuildFile; fileRef = 890022A21C3619B800487EB9 /* 1.zip */; };
 		8901BF541C115A46004F7E81 /* CoreIV.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901BF0A1C115A46004F7E81 /* CoreIV.m */; };
 		8901BF551C115A46004F7E81 /* CoreIV.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8901BF0B1C115A46004F7E81 /* CoreIV.xib */; };
 		8901BF561C115A46004F7E81 /* DGActivityIndicatorBallBeatAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901BF101C115A46004F7E81 /* DGActivityIndicatorBallBeatAnimation.m */; };
@@ -50,6 +49,8 @@
 		8939E7521C6DDD4F00EA8766 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8939E74B1C6DDD4F00EA8766 /* SVIndefiniteAnimatedView.m */; };
 		8939E7531C6DDD4F00EA8766 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8939E74D1C6DDD4F00EA8766 /* SVProgressHUD.bundle */; };
 		8939E7541C6DDD4F00EA8766 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8939E74F1C6DDD4F00EA8766 /* SVProgressHUD.m */; };
+		894639711D6E956600EEBE08 /* CoreStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 894639681D6E956600EEBE08 /* CoreStatus.m */; };
+		894639721D6E956600EEBE08 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8946396E1D6E956600EEBE08 /* Reachability.m */; };
 		896CA3D91C6DDC8E003D477F /* CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 896CA3CA1C6DDC8E003D477F /* CoreHttp.m */; };
 		896CA3DA1C6DDC8E003D477F /* NSString+CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 896CA3CD1C6DDC8E003D477F /* NSString+CoreHttp.m */; };
 		896CA3DB1C6DDC8E003D477F /* NSData+MimeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 896CA3D01C6DDC8E003D477F /* NSData+MimeType.m */; };
@@ -70,8 +71,6 @@
 		EED78AA91AC2B853001083E1 /* UIImage+ColorForBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AA01AC2B853001083E1 /* UIImage+ColorForBtn.m */; };
 		EED78AAA1AC2B853001083E1 /* CoreStatusBtnMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AA31AC2B853001083E1 /* CoreStatusBtnMaskView.m */; };
 		EED78AAB1AC2B853001083E1 /* CoreStatusBtnMaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EED78AA41AC2B853001083E1 /* CoreStatusBtnMaskView.xib */; };
-		EED78AC91AC2B8BD001083E1 /* CoreStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AC51AC2B8BD001083E1 /* CoreStatus.m */; };
-		EED78ACA1AC2B8BD001083E1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EED78AC81AC2B8BD001083E1 /* Reachability.m */; };
 		EEDFF6331AA46F1D00401447 /* cut.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDFF6321AA46F1D00401447 /* cut.png */; };
 		EEDFF6351AA46F8400401447 /* charlin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EEDFF6341AA46F8400401447 /* charlin.jpg */; };
 /* End PBXBuildFile section */
@@ -87,7 +86,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		890022A21C3619B800487EB9 /* 1.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = 1.zip; sourceTree = "<group>"; };
 		8901BF091C115A46004F7E81 /* CoreIV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreIV.h; sourceTree = "<group>"; };
 		8901BF0A1C115A46004F7E81 /* CoreIV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreIV.m; sourceTree = "<group>"; };
 		8901BF0B1C115A46004F7E81 /* CoreIV.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoreIV.xib; sourceTree = "<group>"; };
@@ -173,6 +171,13 @@
 		8939E74D1C6DDD4F00EA8766 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		8939E74E1C6DDD4F00EA8766 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		8939E74F1C6DDD4F00EA8766 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		894639671D6E956600EEBE08 /* CoreStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreStatus.h; sourceTree = "<group>"; };
+		894639681D6E956600EEBE08 /* CoreStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreStatus.m; sourceTree = "<group>"; };
+		8946396A1D6E956600EEBE08 /* CoreNetworkStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreNetworkStatus.h; sourceTree = "<group>"; };
+		8946396B1D6E956600EEBE08 /* CoreStatusProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreStatusProtocol.h; sourceTree = "<group>"; };
+		8946396D1D6E956600EEBE08 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		8946396E1D6E956600EEBE08 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		894639701D6E956600EEBE08 /* CoreStatusSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreStatusSingleton.h; sourceTree = "<group>"; };
 		896CA3C91C6DDC8E003D477F /* CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreHttp.h; sourceTree = "<group>"; };
 		896CA3CA1C6DDC8E003D477F /* CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreHttp.m; sourceTree = "<group>"; };
 		896CA3CC1C6DDC8E003D477F /* NSString+CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CoreHttp.h"; sourceTree = "<group>"; };
@@ -211,10 +216,6 @@
 		EED78AA21AC2B853001083E1 /* CoreStatusBtnMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreStatusBtnMaskView.h; sourceTree = "<group>"; };
 		EED78AA31AC2B853001083E1 /* CoreStatusBtnMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreStatusBtnMaskView.m; sourceTree = "<group>"; };
 		EED78AA41AC2B853001083E1 /* CoreStatusBtnMaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoreStatusBtnMaskView.xib; sourceTree = "<group>"; };
-		EED78AC41AC2B8BD001083E1 /* CoreStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreStatus.h; sourceTree = "<group>"; };
-		EED78AC51AC2B8BD001083E1 /* CoreStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreStatus.m; sourceTree = "<group>"; };
-		EED78AC71AC2B8BD001083E1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		EED78AC81AC2B8BD001083E1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		EEDFF6321AA46F1D00401447 /* cut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cut.png; sourceTree = "<group>"; };
 		EEDFF6341AA46F8400401447 /* charlin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = charlin.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -399,6 +400,44 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		894639661D6E956600EEBE08 /* CoreStatus */ = {
+			isa = PBXGroup;
+			children = (
+				894639671D6E956600EEBE08 /* CoreStatus.h */,
+				894639681D6E956600EEBE08 /* CoreStatus.m */,
+				894639691D6E956600EEBE08 /* Lib */,
+			);
+			path = CoreStatus;
+			sourceTree = "<group>";
+		};
+		894639691D6E956600EEBE08 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				8946396A1D6E956600EEBE08 /* CoreNetworkStatus.h */,
+				8946396B1D6E956600EEBE08 /* CoreStatusProtocol.h */,
+				8946396C1D6E956600EEBE08 /* Reachability */,
+				8946396F1D6E956600EEBE08 /* Singleton */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		8946396C1D6E956600EEBE08 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				8946396D1D6E956600EEBE08 /* Reachability.h */,
+				8946396E1D6E956600EEBE08 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		8946396F1D6E956600EEBE08 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				894639701D6E956600EEBE08 /* CoreStatusSingleton.h */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
 		896CA3C81C6DDC8E003D477F /* CoreHttp */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,7 +513,6 @@
 		EE20AFA51AA4668A009CC587 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				890022A21C3619B800487EB9 /* 1.zip */,
 				EEDFF6341AA46F8400401447 /* charlin.jpg */,
 				EEDFF6321AA46F1D00401447 /* cut.png */,
 				EE20AFA61AA4668A009CC587 /* Info.plist */,
@@ -503,10 +541,10 @@
 		EED78A921AC2B853001083E1 /* FrameWorks */ = {
 			isa = PBXGroup;
 			children = (
+				894639661D6E956600EEBE08 /* CoreStatus */,
 				8939E7441C6DDD4F00EA8766 /* CoreSVP */,
 				8939E73E1C6DDD1700EA8766 /* APPHttp */,
 				8901BF081C115A46004F7E81 /* CoreIV */,
-				EED78AC31AC2B8BD001083E1 /* CoreStatus */,
 				EED78A961AC2B853001083E1 /* CoreBtn */,
 			);
 			path = FrameWorks;
@@ -552,25 +590,6 @@
 				EED78AA41AC2B853001083E1 /* CoreStatusBtnMaskView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		EED78AC31AC2B8BD001083E1 /* CoreStatus */ = {
-			isa = PBXGroup;
-			children = (
-				EED78AC41AC2B8BD001083E1 /* CoreStatus.h */,
-				EED78AC51AC2B8BD001083E1 /* CoreStatus.m */,
-				EED78AC61AC2B8BD001083E1 /* Reachability */,
-			);
-			path = CoreStatus;
-			sourceTree = "<group>";
-		};
-		EED78AC61AC2B8BD001083E1 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				EED78AC71AC2B8BD001083E1 /* Reachability.h */,
-				EED78AC81AC2B8BD001083E1 /* Reachability.m */,
-			);
-			path = Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -653,7 +672,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				890022A31C3619B800487EB9 /* 1.zip in Resources */,
 				EE20AFB11AA4668A009CC587 /* Main.storyboard in Resources */,
 				EEDFF6351AA46F8400401447 /* charlin.jpg in Resources */,
 				EED78AAB1AC2B853001083E1 /* CoreStatusBtnMaskView.xib in Resources */,
@@ -690,6 +708,7 @@
 				8901BF661C115A46004F7E81 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
 				8901BF6D1C115A46004F7E81 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
 				8901BF691C115A46004F7E81 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
+				894639721D6E956600EEBE08 /* Reachability.m in Sources */,
 				8901BF761C115A46004F7E81 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
 				896CA3DF1C6DDC8E003D477F /* UploadFile.m in Sources */,
 				8901BF5C1C115A46004F7E81 /* DGActivityIndicatorBallPulseAnimation.m in Sources */,
@@ -702,7 +721,6 @@
 				8901BF611C115A46004F7E81 /* DGActivityIndicatorBallScaleRippleAnimation.m in Sources */,
 				8901BF541C115A46004F7E81 /* CoreIV.m in Sources */,
 				8939E7521C6DDD4F00EA8766 /* SVIndefiniteAnimatedView.m in Sources */,
-				EED78ACA1AC2B8BD001083E1 /* Reachability.m in Sources */,
 				8939E7431C6DDD1700EA8766 /* APPHttp.m in Sources */,
 				8901BF621C115A46004F7E81 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
 				EED78AA91AC2B853001083E1 /* UIImage+ColorForBtn.m in Sources */,
@@ -714,6 +732,7 @@
 				8901BF721C115A46004F7E81 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
 				8901BF741C115A46004F7E81 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
 				8901BF6C1C115A46004F7E81 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */,
+				894639711D6E956600EEBE08 /* CoreStatus.m in Sources */,
 				896CA3DD1C6DDC8E003D477F /* NSString+File.m in Sources */,
 				8901BF771C115A46004F7E81 /* DGActivityIndicatorView.m in Sources */,
 				EE20AFAB1AA4668A009CC587 /* AppDelegate.m in Sources */,
@@ -729,7 +748,6 @@
 				8901BF5E1C115A46004F7E81 /* DGActivityIndicatorBallRotateAnimation.m in Sources */,
 				8901BF701C115A46004F7E81 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
 				8901BF631C115A46004F7E81 /* DGActivityIndicatorBallSpinFadeLoader.m in Sources */,
-				EED78AC91AC2B8BD001083E1 /* CoreStatus.m in Sources */,
 				8901BF6A1C115A46004F7E81 /* DGActivityIndicatorLineScaleAnimation.m in Sources */,
 				896CA3DB1C6DDC8E003D477F /* NSData+MimeType.m in Sources */,
 				8901BF671C115A46004F7E81 /* DGActivityIndicatorCookieTerminatorAnimation.m in Sources */,
