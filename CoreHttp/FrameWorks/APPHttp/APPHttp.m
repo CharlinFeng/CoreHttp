@@ -76,7 +76,7 @@ HMSingletonM(APPHttp)
         
     }else if (APPHttpTypeSVP == type){ //SVP
         
-//        CoreSVPLoading(@"正在加载", urlString)
+        CoreSVPLoading(@"正在加载", urlString)
     }
 
     
